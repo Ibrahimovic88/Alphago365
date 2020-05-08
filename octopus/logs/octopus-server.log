@@ -1,0 +1,915 @@
+08-05-2020 00:01:25.086 [35m[http-nio-8080-exec-5][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/change-password
+08-05-2020 00:05:52.169 [35m[HikariPool-1 housekeeper][0;39m [31mWARN [0;39m com.zaxxer.hikari.pool.HikariPool.run - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m8s803ms695µs200ns).
+08-05-2020 00:06:01.123 [35m[http-nio-8080-exec-5][0;39m [31mWARN [0;39m o.s.w.s.m.a.ResponseStatusExceptionResolver.logException - Resolved [com.alphago365.octopus.exception.InvalidCredentialException: Username or old password incorrect]
+08-05-2020 00:07:42.181 [35m[http-nio-8080-exec-4][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/change-password
+08-05-2020 00:31:36.588 [35m[HikariPool-1 housekeeper][0;39m [31mWARN [0;39m com.zaxxer.hikari.pool.HikariPool.run - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=23m40s9ms275µs600ns).
+08-05-2020 00:31:36.592 [35m[http-nio-8080-exec-4][0;39m [31mWARN [0;39m o.s.w.s.m.a.ResponseStatusExceptionResolver.logException - Resolved [com.alphago365.octopus.exception.InvalidCredentialException: Username or old password incorrect]
+08-05-2020 00:31:36.765 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m o.s.s.c.ThreadPoolTaskExecutor.shutdown - Shutting down ExecutorService 'applicationTaskExecutor'
+08-05-2020 00:31:36.769 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+08-05-2020 00:31:36.773 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+08-05-2020 00:31:36.843 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
+08-05-2020 00:31:44.137 [35m[restartedMain][0;39m [34mINFO [0;39m c.a.octopus.OctopusApplication.logStarting - Starting OctopusApplication on CNENCHEND15L4C with PID 24640 (D:\MyIdeaProject\octopus\target\classes started by chend15 in D:\MyIdeaProject\octopus)
+08-05-2020 00:31:44.141 [35m[restartedMain][0;39m [39mDEBUG[0;39m c.a.octopus.OctopusApplication.logStarting - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+08-05-2020 00:31:44.141 [35m[restartedMain][0;39m [34mINFO [0;39m c.a.octopus.OctopusApplication.logStartupProfileInfo - The following profiles are active: dev
+08-05-2020 00:31:44.202 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.restart.ChangeableUrls.logTo - The Class-Path manifest attribute in C:\Users\chend15\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.2\jaxb-runtime-2.3.2.jar referenced one or more files that do not exist: file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.xml.bind-api-2.3.2.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/txw2-2.3.2.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/istack-commons-runtime-3.0.8.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/stax-ex-1.8.1.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/FastInfoset-1.2.16.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.activation-api-1.2.1.jar
+08-05-2020 00:31:44.202 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+08-05-2020 00:31:44.203 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+08-05-2020 00:31:45.166 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+08-05-2020 00:31:45.240 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 65ms. Found 2 JPA repository interfaces.
+08-05-2020 00:31:45.749 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 00:31:45.752 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 00:31:45.755 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@36aaf3b6' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 00:31:45.757 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 00:31:45.761 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 00:31:46.452 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+08-05-2020 00:31:46.463 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.coyote.http11.Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8080"]
+08-05-2020 00:31:46.464 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+08-05-2020 00:31:46.464 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/9.0.33]
+08-05-2020 00:31:46.619 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+08-05-2020 00:31:46.619 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.web.context.ContextLoader.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 2416 ms
+08-05-2020 00:31:46.818 [35m[restartedMain][0;39m [34mINFO [0;39m o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+08-05-2020 00:31:46.885 [35m[restartedMain][0;39m [34mINFO [0;39m org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 5.4.12.Final
+08-05-2020 00:31:47.036 [35m[restartedMain][0;39m [34mINFO [0;39m o.h.annotations.common.Version.<clinit> - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+08-05-2020 00:31:47.143 [35m[restartedMain][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+08-05-2020 00:31:47.468 [35m[restartedMain][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+08-05-2020 00:31:47.499 [35m[restartedMain][0;39m [34mINFO [0;39m org.hibernate.dialect.Dialect.<init> - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+08-05-2020 00:31:48.396 [35m[restartedMain][0;39m [34mINFO [0;39m o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+08-05-2020 00:31:48.402 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+08-05-2020 00:31:49.027 [35m[restartedMain][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.init - Filter 'jwtRequestFilter' configured for use
+08-05-2020 00:31:49.053 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.a.OptionalLiveReloadServer.startServer - LiveReload server is running on port 35729
+08-05-2020 00:31:49.122 [35m[restartedMain][0;39m [31mWARN [0;39m o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+08-05-2020 00:31:49.619 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+08-05-2020 00:31:49.761 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.s.web.DefaultSecurityFilterChain.<init> - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@55525661, org.springframework.security.web.context.SecurityContextPersistenceFilter@4bf11d58, org.springframework.security.web.header.HeaderWriterFilter@5bc8d68a, org.springframework.security.web.authentication.logout.LogoutFilter@4e69d3a5, com.alphago365.octopus.security.JwtRequestFilter@1fd4616b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7eee58e4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6b43b80f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@576d0509, org.springframework.security.web.session.SessionManagementFilter@6d31273, org.springframework.security.web.access.ExceptionTranslationFilter@2ee374ec, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@61b0d398]
+08-05-2020 00:31:49.867 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.s.c.ThreadPoolTaskExecutor.initialize - Initializing ExecutorService 'applicationTaskExecutor'
+08-05-2020 00:31:50.048 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.p.DocumentationPluginsBootstrapper.start - Context refreshed
+08-05-2020 00:31:50.075 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.p.DocumentationPluginsBootstrapper.start - Found 1 custom documentation plugin(s)
+08-05-2020 00:31:50.105 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.s.ApiListingReferenceScanner.scan - Scanning for api listing references
+08-05-2020 00:31:50.311 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.coyote.http11.Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8080"]
+08-05-2020 00:31:50.343 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+08-05-2020 00:31:50.347 [35m[restartedMain][0;39m [34mINFO [0;39m c.a.octopus.OctopusApplication.logStarted - Started OctopusApplication in 6.829 seconds (JVM running for 7.681)
+08-05-2020 00:32:32.386 [35m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+08-05-2020 00:32:32.386 [35m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+08-05-2020 00:32:32.396 [35m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 9 ms
+08-05-2020 00:32:32.415 [35m[http-nio-8080-exec-1][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/change-password
+08-05-2020 00:33:04.230 [35m[http-nio-8080-exec-1][0;39m [1;31mERROR[0;39m o.a.c.c.C.[.[.[.[dispatcherServlet].log - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.UnsupportedOperationException] with root cause
+java.lang.UnsupportedOperationException: null
+	at java.util.Collections$1.remove(Collections.java:4686)
+	at java.util.AbstractCollection.clear(AbstractCollection.java:436)
+	at org.hibernate.type.CollectionType.replaceElements(CollectionType.java:581)
+	at org.hibernate.type.CollectionType.replace(CollectionType.java:757)
+	at org.hibernate.type.TypeHelper.replace(TypeHelper.java:167)
+	at org.hibernate.event.internal.DefaultMergeEventListener.copyValues(DefaultMergeEventListener.java:451)
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsPersistent(DefaultMergeEventListener.java:205)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:178)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:70)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:783)
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:770)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:366)
+	at com.sun.proxy.$Proxy130.merge(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:314)
+	at com.sun.proxy.$Proxy130.merge(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:557)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:371)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:204)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:657)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:621)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:605)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:80)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:366)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:178)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy145.save(Unknown Source)
+	at com.alphago365.octopus.security.JwtUserDetailsService.save(JwtUserDetailsService.java:55)
+	at com.alphago365.octopus.security.JwtUserDetailsService$$FastClassBySpringCGLIB$$44d0095b.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:366)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
+	at com.alphago365.octopus.security.JwtUserDetailsService$$EnhancerBySpringCGLIB$$367e7377.save(<generated>)
+	at com.alphago365.octopus.controller.UserController.changePassword(UserController.java:173)
+	at com.alphago365.octopus.controller.UserController$$FastClassBySpringCGLIB$$74aa1635.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687)
+	at com.alphago365.octopus.controller.UserController$$EnhancerBySpringCGLIB$$e1092f5.changePassword(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at com.alphago365.octopus.security.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:67)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1594)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+08-05-2020 00:33:04.374 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m o.s.s.c.ThreadPoolTaskExecutor.shutdown - Shutting down ExecutorService 'applicationTaskExecutor'
+08-05-2020 00:33:04.378 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+08-05-2020 00:33:04.381 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+08-05-2020 00:33:04.395 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
+08-05-2020 00:37:26.209 [35m[restartedMain][0;39m [34mINFO [0;39m c.a.octopus.OctopusApplication.logStarting - Starting OctopusApplication on CNENCHEND15L4C with PID 25224 (D:\MyIdeaProject\octopus\target\classes started by chend15 in D:\MyIdeaProject\octopus)
+08-05-2020 00:37:26.215 [35m[restartedMain][0;39m [39mDEBUG[0;39m c.a.octopus.OctopusApplication.logStarting - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+08-05-2020 00:37:26.215 [35m[restartedMain][0;39m [34mINFO [0;39m c.a.octopus.OctopusApplication.logStartupProfileInfo - The following profiles are active: dev
+08-05-2020 00:37:26.277 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.restart.ChangeableUrls.logTo - The Class-Path manifest attribute in C:\Users\chend15\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.2\jaxb-runtime-2.3.2.jar referenced one or more files that do not exist: file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.xml.bind-api-2.3.2.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/txw2-2.3.2.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/istack-commons-runtime-3.0.8.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/stax-ex-1.8.1.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/FastInfoset-1.2.16.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.activation-api-1.2.1.jar
+08-05-2020 00:37:26.278 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+08-05-2020 00:37:26.278 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+08-05-2020 00:37:27.325 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+08-05-2020 00:37:27.392 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 60ms. Found 2 JPA repository interfaces.
+08-05-2020 00:37:27.853 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 00:37:27.857 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 00:37:27.859 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@4b7ae44c' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 00:37:27.862 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 00:37:27.867 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 00:37:28.547 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+08-05-2020 00:37:28.558 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.coyote.http11.Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8080"]
+08-05-2020 00:37:28.559 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+08-05-2020 00:37:28.560 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/9.0.33]
+08-05-2020 00:37:28.734 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+08-05-2020 00:37:28.735 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.web.context.ContextLoader.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 2457 ms
+08-05-2020 00:37:28.929 [35m[restartedMain][0;39m [34mINFO [0;39m o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+08-05-2020 00:37:28.997 [35m[restartedMain][0;39m [34mINFO [0;39m org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 5.4.12.Final
+08-05-2020 00:37:29.148 [35m[restartedMain][0;39m [34mINFO [0;39m o.h.annotations.common.Version.<clinit> - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+08-05-2020 00:37:29.264 [35m[restartedMain][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+08-05-2020 00:37:29.550 [35m[restartedMain][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+08-05-2020 00:37:29.569 [35m[restartedMain][0;39m [34mINFO [0;39m org.hibernate.dialect.Dialect.<init> - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+08-05-2020 00:37:30.500 [35m[restartedMain][0;39m [34mINFO [0;39m o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+08-05-2020 00:37:30.507 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+08-05-2020 00:37:31.189 [35m[restartedMain][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.init - Filter 'jwtRequestFilter' configured for use
+08-05-2020 00:37:31.220 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.a.OptionalLiveReloadServer.startServer - LiveReload server is running on port 35729
+08-05-2020 00:37:31.293 [35m[restartedMain][0;39m [31mWARN [0;39m o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+08-05-2020 00:37:31.875 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+08-05-2020 00:37:32.014 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.s.web.DefaultSecurityFilterChain.<init> - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@425ca7d, org.springframework.security.web.context.SecurityContextPersistenceFilter@6f5dfce4, org.springframework.security.web.header.HeaderWriterFilter@436ad216, org.springframework.security.web.authentication.logout.LogoutFilter@61315a4b, com.alphago365.octopus.security.JwtRequestFilter@24c39ed4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@659726de, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2f8cf472, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2a72f227, org.springframework.security.web.session.SessionManagementFilter@7373e79b, org.springframework.security.web.access.ExceptionTranslationFilter@78de935, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@15c6038a]
+08-05-2020 00:37:32.128 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.s.c.ThreadPoolTaskExecutor.initialize - Initializing ExecutorService 'applicationTaskExecutor'
+08-05-2020 00:37:32.315 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.p.DocumentationPluginsBootstrapper.start - Context refreshed
+08-05-2020 00:37:32.339 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.p.DocumentationPluginsBootstrapper.start - Found 1 custom documentation plugin(s)
+08-05-2020 00:37:32.370 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.s.ApiListingReferenceScanner.scan - Scanning for api listing references
+08-05-2020 00:37:32.562 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.coyote.http11.Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8080"]
+08-05-2020 00:37:32.591 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+08-05-2020 00:37:32.593 [35m[restartedMain][0;39m [34mINFO [0;39m c.a.octopus.OctopusApplication.logStarted - Started OctopusApplication in 7.053 seconds (JVM running for 7.845)
+08-05-2020 00:37:43.781 [35m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+08-05-2020 00:37:43.781 [35m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+08-05-2020 00:37:43.790 [35m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 9 ms
+08-05-2020 00:37:43.814 [35m[http-nio-8080-exec-1][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/change-password
+08-05-2020 00:37:52.179 [35m[http-nio-8080-exec-1][0;39m [1;31mERROR[0;39m o.a.c.c.C.[.[.[.[dispatcherServlet].log - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.UnsupportedOperationException] with root cause
+java.lang.UnsupportedOperationException: null
+	at java.util.Collections$1.remove(Collections.java:4686)
+	at java.util.AbstractCollection.clear(AbstractCollection.java:436)
+	at org.hibernate.type.CollectionType.replaceElements(CollectionType.java:581)
+	at org.hibernate.type.CollectionType.replace(CollectionType.java:757)
+	at org.hibernate.type.TypeHelper.replace(TypeHelper.java:167)
+	at org.hibernate.event.internal.DefaultMergeEventListener.copyValues(DefaultMergeEventListener.java:451)
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsPersistent(DefaultMergeEventListener.java:205)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:178)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:70)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:783)
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:770)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:366)
+	at com.sun.proxy.$Proxy130.merge(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:314)
+	at com.sun.proxy.$Proxy130.merge(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:557)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:371)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:204)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:657)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:621)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:605)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:80)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:366)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:178)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy145.save(Unknown Source)
+	at com.alphago365.octopus.security.JwtUserDetailsService.save(JwtUserDetailsService.java:55)
+	at com.alphago365.octopus.security.JwtUserDetailsService$$FastClassBySpringCGLIB$$44d0095b.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:366)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
+	at com.alphago365.octopus.security.JwtUserDetailsService$$EnhancerBySpringCGLIB$$505e2e28.save(<generated>)
+	at com.alphago365.octopus.controller.UserController.changePassword(UserController.java:173)
+	at com.alphago365.octopus.controller.UserController$$FastClassBySpringCGLIB$$74aa1635.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687)
+	at com.alphago365.octopus.controller.UserController$$EnhancerBySpringCGLIB$$bfa05687.changePassword(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at com.alphago365.octopus.security.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:67)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1594)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+08-05-2020 00:38:40.022 [35m[http-nio-8080-exec-2][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/change-password
+08-05-2020 00:46:15.335 [35m[HikariPool-1 housekeeper][0;39m [31mWARN [0;39m com.zaxxer.hikari.pool.HikariPool.run - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m4s356ms341µs400ns).
+08-05-2020 00:46:15.336 [35m[http-nio-8080-exec-2][0;39m [1;31mERROR[0;39m o.a.c.c.C.[.[.[.[dispatcherServlet].log - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.UnsupportedOperationException] with root cause
+java.lang.UnsupportedOperationException: null
+	at java.util.Collections$1.remove(Collections.java:4686)
+	at java.util.AbstractCollection.clear(AbstractCollection.java:436)
+	at org.hibernate.type.CollectionType.replaceElements(CollectionType.java:581)
+	at org.hibernate.type.CollectionType.replace(CollectionType.java:757)
+	at org.hibernate.type.TypeHelper.replace(TypeHelper.java:167)
+	at org.hibernate.event.internal.DefaultMergeEventListener.copyValues(DefaultMergeEventListener.java:451)
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsPersistent(DefaultMergeEventListener.java:205)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:178)
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:70)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:783)
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:770)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:366)
+	at com.sun.proxy.$Proxy130.merge(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:314)
+	at com.sun.proxy.$Proxy130.merge(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:557)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:371)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:204)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:657)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:621)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:605)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:80)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:366)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:178)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy145.save(Unknown Source)
+	at com.alphago365.octopus.security.JwtUserDetailsService.save(JwtUserDetailsService.java:55)
+	at com.alphago365.octopus.security.JwtUserDetailsService$$FastClassBySpringCGLIB$$44d0095b.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:366)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
+	at com.alphago365.octopus.security.JwtUserDetailsService$$EnhancerBySpringCGLIB$$505e2e28.save(<generated>)
+	at com.alphago365.octopus.controller.UserController.changePassword(UserController.java:173)
+	at com.alphago365.octopus.controller.UserController$$FastClassBySpringCGLIB$$74aa1635.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:687)
+	at com.alphago365.octopus.controller.UserController$$EnhancerBySpringCGLIB$$bfa05687.changePassword(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at com.alphago365.octopus.security.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:67)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1594)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+08-05-2020 00:46:15.501 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m o.s.s.c.ThreadPoolTaskExecutor.shutdown - Shutting down ExecutorService 'applicationTaskExecutor'
+08-05-2020 00:46:15.504 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+08-05-2020 00:46:15.508 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+08-05-2020 00:46:15.527 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
+08-05-2020 00:46:23.744 [35m[restartedMain][0;39m [34mINFO [0;39m c.a.octopus.OctopusApplication.logStarting - Starting OctopusApplication on CNENCHEND15L4C with PID 5196 (D:\MyIdeaProject\octopus\target\classes started by chend15 in D:\MyIdeaProject\octopus)
+08-05-2020 00:46:23.748 [35m[restartedMain][0;39m [39mDEBUG[0;39m c.a.octopus.OctopusApplication.logStarting - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+08-05-2020 00:46:23.748 [35m[restartedMain][0;39m [34mINFO [0;39m c.a.octopus.OctopusApplication.logStartupProfileInfo - The following profiles are active: dev
+08-05-2020 00:46:23.805 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.restart.ChangeableUrls.logTo - The Class-Path manifest attribute in C:\Users\chend15\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.2\jaxb-runtime-2.3.2.jar referenced one or more files that do not exist: file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.xml.bind-api-2.3.2.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/txw2-2.3.2.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/istack-commons-runtime-3.0.8.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/stax-ex-1.8.1.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/FastInfoset-1.2.16.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.activation-api-1.2.1.jar
+08-05-2020 00:46:23.806 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+08-05-2020 00:46:23.806 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+08-05-2020 00:46:24.770 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+08-05-2020 00:46:24.835 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 57ms. Found 2 JPA repository interfaces.
+08-05-2020 00:46:25.335 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 00:46:25.340 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 00:46:25.343 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@5185c4b0' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 00:46:25.345 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 00:46:25.350 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 00:46:26.082 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+08-05-2020 00:46:26.092 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.coyote.http11.Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8080"]
+08-05-2020 00:46:26.093 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+08-05-2020 00:46:26.093 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/9.0.33]
+08-05-2020 00:46:26.264 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+08-05-2020 00:46:26.265 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.web.context.ContextLoader.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 2457 ms
+08-05-2020 00:46:26.467 [35m[restartedMain][0;39m [34mINFO [0;39m o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+08-05-2020 00:46:26.540 [35m[restartedMain][0;39m [34mINFO [0;39m org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 5.4.12.Final
+08-05-2020 00:46:26.672 [35m[restartedMain][0;39m [34mINFO [0;39m o.h.annotations.common.Version.<clinit> - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+08-05-2020 00:46:26.771 [35m[restartedMain][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+08-05-2020 00:46:27.075 [35m[restartedMain][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+08-05-2020 00:46:27.092 [35m[restartedMain][0;39m [34mINFO [0;39m org.hibernate.dialect.Dialect.<init> - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+08-05-2020 00:46:28.060 [35m[restartedMain][0;39m [34mINFO [0;39m o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+08-05-2020 00:46:28.068 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+08-05-2020 00:46:28.764 [35m[restartedMain][0;39m [31mWARN [0;39m o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+08-05-2020 00:46:29.095 [35m[restartedMain][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.init - Filter 'jwtRequestFilter' configured for use
+08-05-2020 00:46:29.140 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.a.OptionalLiveReloadServer.startServer - LiveReload server is running on port 35729
+08-05-2020 00:46:29.631 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+08-05-2020 00:46:29.788 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.s.web.DefaultSecurityFilterChain.<init> - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3541f834, org.springframework.security.web.context.SecurityContextPersistenceFilter@3a655e92, org.springframework.security.web.header.HeaderWriterFilter@38a48aca, org.springframework.security.web.authentication.logout.LogoutFilter@327030e9, com.alphago365.octopus.security.JwtRequestFilter@651b01a9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@482bc9eb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@422e681d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2a32fa5c, org.springframework.security.web.session.SessionManagementFilter@353e07aa, org.springframework.security.web.access.ExceptionTranslationFilter@1c393a2c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@12609c93]
+08-05-2020 00:46:29.909 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.s.c.ThreadPoolTaskExecutor.initialize - Initializing ExecutorService 'applicationTaskExecutor'
+08-05-2020 00:46:30.134 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.p.DocumentationPluginsBootstrapper.start - Context refreshed
+08-05-2020 00:46:30.170 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.p.DocumentationPluginsBootstrapper.start - Found 1 custom documentation plugin(s)
+08-05-2020 00:46:30.208 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.s.ApiListingReferenceScanner.scan - Scanning for api listing references
+08-05-2020 00:46:30.457 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.coyote.http11.Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8080"]
+08-05-2020 00:46:30.488 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+08-05-2020 00:46:30.490 [35m[restartedMain][0;39m [34mINFO [0;39m c.a.octopus.OctopusApplication.logStarted - Started OctopusApplication in 7.355 seconds (JVM running for 8.088)
+08-05-2020 00:46:48.522 [35m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+08-05-2020 00:46:48.523 [35m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+08-05-2020 00:46:48.533 [35m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 10 ms
+08-05-2020 00:46:48.555 [35m[http-nio-8080-exec-1][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/change-password
+08-05-2020 00:47:24.123 [35m[http-nio-8080-exec-2][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/sign-in
+08-05-2020 00:47:24.274 [35m[http-nio-8080-exec-2][0;39m [1;31mERROR[0;39m c.a.o.s.JwtAuthenticationEntryPoint.commence - Responding with unauthorized error. Message - Bad credentials
+08-05-2020 00:48:08.734 [35m[http-nio-8080-exec-3][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/sign-in
+08-05-2020 00:48:32.831 [35m[http-nio-8080-exec-4][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/sign-out
+08-05-2020 00:48:59.174 [35m[http-nio-8080-exec-5][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/dylan
+08-05-2020 00:50:09.141 [35m[http-nio-8080-exec-7][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/dylan
+08-05-2020 00:52:37.044 [35m[HikariPool-1 housekeeper][0;39m [31mWARN [0;39m com.zaxxer.hikari.pool.HikariPool.run - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m8s669ms928µs900ns).
+08-05-2020 00:52:37.226 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m o.s.s.c.ThreadPoolTaskExecutor.shutdown - Shutting down ExecutorService 'applicationTaskExecutor'
+08-05-2020 00:52:37.230 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+08-05-2020 00:52:37.234 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+08-05-2020 00:52:37.253 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
+08-05-2020 00:52:51.203 [35m[restartedMain][0;39m [34mINFO [0;39m c.a.octopus.OctopusApplication.logStarting - Starting OctopusApplication on CNENCHEND15L4C with PID 23176 (D:\MyIdeaProject\octopus\target\classes started by chend15 in D:\MyIdeaProject\octopus)
+08-05-2020 00:52:51.206 [35m[restartedMain][0;39m [39mDEBUG[0;39m c.a.octopus.OctopusApplication.logStarting - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+08-05-2020 00:52:51.207 [35m[restartedMain][0;39m [34mINFO [0;39m c.a.octopus.OctopusApplication.logStartupProfileInfo - The following profiles are active: dev
+08-05-2020 00:52:51.265 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.restart.ChangeableUrls.logTo - The Class-Path manifest attribute in C:\Users\chend15\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.2\jaxb-runtime-2.3.2.jar referenced one or more files that do not exist: file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.xml.bind-api-2.3.2.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/txw2-2.3.2.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/istack-commons-runtime-3.0.8.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/stax-ex-1.8.1.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/FastInfoset-1.2.16.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.activation-api-1.2.1.jar
+08-05-2020 00:52:51.265 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+08-05-2020 00:52:51.266 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+08-05-2020 00:52:52.325 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+08-05-2020 00:52:52.402 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 69ms. Found 2 JPA repository interfaces.
+08-05-2020 00:52:52.900 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 00:52:52.904 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 00:52:52.907 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@506bcc3a' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 00:52:52.910 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 00:52:52.914 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 00:52:53.651 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+08-05-2020 00:52:53.662 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.coyote.http11.Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8080"]
+08-05-2020 00:52:53.663 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+08-05-2020 00:52:53.664 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/9.0.33]
+08-05-2020 00:52:53.827 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+08-05-2020 00:52:53.828 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.web.context.ContextLoader.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 2562 ms
+08-05-2020 00:52:54.030 [35m[restartedMain][0;39m [34mINFO [0;39m o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+08-05-2020 00:52:54.109 [35m[restartedMain][0;39m [34mINFO [0;39m org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 5.4.12.Final
+08-05-2020 00:52:54.257 [35m[restartedMain][0;39m [34mINFO [0;39m o.h.annotations.common.Version.<clinit> - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+08-05-2020 00:52:54.378 [35m[restartedMain][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+08-05-2020 00:52:54.752 [35m[restartedMain][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+08-05-2020 00:52:54.769 [35m[restartedMain][0;39m [34mINFO [0;39m org.hibernate.dialect.Dialect.<init> - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+08-05-2020 00:52:55.701 [35m[restartedMain][0;39m [34mINFO [0;39m o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+08-05-2020 00:52:55.708 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+08-05-2020 00:52:56.374 [35m[restartedMain][0;39m [31mWARN [0;39m o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+08-05-2020 00:52:56.532 [35m[restartedMain][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.init - Filter 'jwtRequestFilter' configured for use
+08-05-2020 00:52:56.556 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.a.OptionalLiveReloadServer.startServer - LiveReload server is running on port 35729
+08-05-2020 00:52:57.004 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+08-05-2020 00:52:57.141 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.s.web.DefaultSecurityFilterChain.<init> - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@34ec5989, org.springframework.security.web.context.SecurityContextPersistenceFilter@40553ca4, org.springframework.security.web.header.HeaderWriterFilter@12d4643f, org.springframework.security.web.authentication.logout.LogoutFilter@5ec69b3f, com.alphago365.octopus.security.JwtRequestFilter@37231ba5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@52c15058, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5441e1ae, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@d781405, org.springframework.security.web.session.SessionManagementFilter@234e8e58, org.springframework.security.web.access.ExceptionTranslationFilter@35a66320, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@38e46d2d]
+08-05-2020 00:52:57.257 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.s.c.ThreadPoolTaskExecutor.initialize - Initializing ExecutorService 'applicationTaskExecutor'
+08-05-2020 00:52:57.430 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.p.DocumentationPluginsBootstrapper.start - Context refreshed
+08-05-2020 00:52:57.453 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.p.DocumentationPluginsBootstrapper.start - Found 1 custom documentation plugin(s)
+08-05-2020 00:52:57.482 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.s.ApiListingReferenceScanner.scan - Scanning for api listing references
+08-05-2020 00:52:57.678 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.coyote.http11.Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8080"]
+08-05-2020 00:52:57.710 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+08-05-2020 00:52:57.712 [35m[restartedMain][0;39m [34mINFO [0;39m c.a.octopus.OctopusApplication.logStarted - Started OctopusApplication in 7.139 seconds (JVM running for 7.924)
+08-05-2020 00:53:18.962 [35m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+08-05-2020 00:53:18.962 [35m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+08-05-2020 00:53:18.971 [35m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 8 ms
+08-05-2020 00:53:18.996 [35m[http-nio-8080-exec-1][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/swagger-ui.html
+08-05-2020 01:03:57.815 [35m[HikariPool-1 housekeeper][0;39m [31mWARN [0;39m com.zaxxer.hikari.pool.HikariPool.run - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m2s960ms462µs400ns).
+08-05-2020 01:03:57.889 [35m[http-nio-8080-exec-3][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/springfox.css
+08-05-2020 01:03:57.894 [35m[http-nio-8080-exec-6][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js
+08-05-2020 01:03:57.894 [35m[http-nio-8080-exec-5][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/swagger-ui.css
+08-05-2020 01:03:57.896 [35m[http-nio-8080-exec-7][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/springfox.js
+08-05-2020 01:03:57.894 [35m[http-nio-8080-exec-4][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/swagger-ui-bundle.js
+08-05-2020 01:03:57.976 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m o.s.s.c.ThreadPoolTaskExecutor.shutdown - Shutting down ExecutorService 'applicationTaskExecutor'
+08-05-2020 01:03:57.980 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+08-05-2020 01:03:57.986 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+08-05-2020 01:03:58.015 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
+08-05-2020 01:04:06.888 [35m[restartedMain][0;39m [34mINFO [0;39m c.a.octopus.OctopusApplication.logStarting - Starting OctopusApplication on CNENCHEND15L4C with PID 18580 (D:\MyIdeaProject\octopus\target\classes started by chend15 in D:\MyIdeaProject\octopus)
+08-05-2020 01:04:06.892 [35m[restartedMain][0;39m [39mDEBUG[0;39m c.a.octopus.OctopusApplication.logStarting - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+08-05-2020 01:04:06.893 [35m[restartedMain][0;39m [34mINFO [0;39m c.a.octopus.OctopusApplication.logStartupProfileInfo - The following profiles are active: dev
+08-05-2020 01:04:06.955 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.restart.ChangeableUrls.logTo - The Class-Path manifest attribute in C:\Users\chend15\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.2\jaxb-runtime-2.3.2.jar referenced one or more files that do not exist: file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.xml.bind-api-2.3.2.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/txw2-2.3.2.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/istack-commons-runtime-3.0.8.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/stax-ex-1.8.1.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/FastInfoset-1.2.16.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.activation-api-1.2.1.jar
+08-05-2020 01:04:06.956 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+08-05-2020 01:04:06.956 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+08-05-2020 01:04:08.027 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+08-05-2020 01:04:08.111 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 73ms. Found 2 JPA repository interfaces.
+08-05-2020 01:04:08.559 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 01:04:08.563 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 01:04:08.566 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@351789b2' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 01:04:08.569 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 01:04:08.572 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 01:04:09.308 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+08-05-2020 01:04:09.320 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.coyote.http11.Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8080"]
+08-05-2020 01:04:09.322 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+08-05-2020 01:04:09.322 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/9.0.33]
+08-05-2020 01:04:09.502 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+08-05-2020 01:04:09.503 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.web.context.ContextLoader.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 2547 ms
+08-05-2020 01:04:09.721 [35m[restartedMain][0;39m [34mINFO [0;39m o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+08-05-2020 01:04:09.789 [35m[restartedMain][0;39m [34mINFO [0;39m org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 5.4.12.Final
+08-05-2020 01:04:09.940 [35m[restartedMain][0;39m [34mINFO [0;39m o.h.annotations.common.Version.<clinit> - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+08-05-2020 01:04:10.054 [35m[restartedMain][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+08-05-2020 01:04:10.371 [35m[restartedMain][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+08-05-2020 01:04:10.397 [35m[restartedMain][0;39m [34mINFO [0;39m org.hibernate.dialect.Dialect.<init> - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+08-05-2020 01:04:11.641 [35m[restartedMain][0;39m [34mINFO [0;39m o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+08-05-2020 01:04:11.648 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+08-05-2020 01:04:12.282 [35m[restartedMain][0;39m [31mWARN [0;39m o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+08-05-2020 01:04:12.439 [35m[restartedMain][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.init - Filter 'jwtRequestFilter' configured for use
+08-05-2020 01:04:12.462 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.a.OptionalLiveReloadServer.startServer - LiveReload server is running on port 35729
+08-05-2020 01:04:12.916 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+08-05-2020 01:04:13.039 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.s.web.DefaultSecurityFilterChain.<init> - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7ff6c11, org.springframework.security.web.context.SecurityContextPersistenceFilter@584dd283, org.springframework.security.web.header.HeaderWriterFilter@4b2babdc, org.springframework.security.web.authentication.logout.LogoutFilter@c4981b4, com.alphago365.octopus.security.JwtRequestFilter@6e3a0966, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@595da881, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@15ea5b37, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@66a0bf74, org.springframework.security.web.session.SessionManagementFilter@5638e804, org.springframework.security.web.access.ExceptionTranslationFilter@7076298e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6b348589]
+08-05-2020 01:04:13.156 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.s.c.ThreadPoolTaskExecutor.initialize - Initializing ExecutorService 'applicationTaskExecutor'
+08-05-2020 01:04:13.328 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.p.DocumentationPluginsBootstrapper.start - Context refreshed
+08-05-2020 01:04:13.350 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.p.DocumentationPluginsBootstrapper.start - Found 1 custom documentation plugin(s)
+08-05-2020 01:04:13.377 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.s.ApiListingReferenceScanner.scan - Scanning for api listing references
+08-05-2020 01:04:13.571 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.coyote.http11.Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8080"]
+08-05-2020 01:04:13.600 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+08-05-2020 01:04:13.602 [35m[restartedMain][0;39m [34mINFO [0;39m c.a.octopus.OctopusApplication.logStarted - Started OctopusApplication in 7.347 seconds (JVM running for 8.113)
+08-05-2020 01:04:18.800 [35m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+08-05-2020 01:04:18.800 [35m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+08-05-2020 01:04:18.809 [35m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 9 ms
+08-05-2020 01:04:18.836 [35m[http-nio-8080-exec-1][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/null/swagger-resources/configuration/ui
+08-05-2020 01:04:22.350 [35m[http-nio-8080-exec-2][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/null/swagger-resources/configuration/security
+08-05-2020 01:04:23.120 [35m[http-nio-8080-exec-3][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/null/swagger-resources
+08-05-2020 01:04:27.227 [35m[http-nio-8080-exec-4][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/null/swagger-resources/configuration/ui
+08-05-2020 01:04:27.235 [35m[http-nio-8080-exec-5][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/null/swagger-resources/configuration/security
+08-05-2020 01:04:27.243 [35m[http-nio-8080-exec-6][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/null/swagger-resources
+08-05-2020 01:04:28.448 [35m[http-nio-8080-exec-7][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/null/swagger-resources/configuration/ui
+08-05-2020 01:04:28.457 [35m[http-nio-8080-exec-8][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/null/swagger-resources/configuration/security
+08-05-2020 01:04:28.464 [35m[http-nio-8080-exec-9][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/null/swagger-resources
+08-05-2020 01:04:29.427 [35m[http-nio-8080-exec-10][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/null/swagger-resources/configuration/ui
+08-05-2020 01:04:35.449 [35m[http-nio-8080-exec-2][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/
+08-05-2020 01:04:35.468 [35m[http-nio-8080-exec-3][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/swagger-ui.html
+08-05-2020 01:04:35.520 [35m[http-nio-8080-exec-4][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/springfox.css
+08-05-2020 01:04:35.521 [35m[http-nio-8080-exec-5][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/swagger-ui.css
+08-05-2020 01:04:35.523 [35m[http-nio-8080-exec-7][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js
+08-05-2020 01:04:35.524 [35m[http-nio-8080-exec-8][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/springfox.js
+08-05-2020 01:04:35.526 [35m[http-nio-8080-exec-6][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/swagger-ui-bundle.js
+08-05-2020 01:04:35.796 [35m[http-nio-8080-exec-9][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/swagger-resources/configuration/ui
+08-05-2020 01:04:35.797 [35m[http-nio-8080-exec-10][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/favicon-32x32.png
+08-05-2020 01:04:35.824 [35m[http-nio-8080-exec-1][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/swagger-resources/configuration/security
+08-05-2020 01:04:35.833 [35m[http-nio-8080-exec-2][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/swagger-resources
+08-05-2020 01:04:35.866 [35m[http-nio-8080-exec-3][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/v2/api-docs
+08-05-2020 01:04:35.867 [35m[http-nio-8080-exec-4][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/
+08-05-2020 01:04:35.895 [35m[http-nio-8080-exec-5][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/swagger-ui.html
+08-05-2020 01:04:35.895 [35m[http-nio-8080-exec-8][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2
+08-05-2020 01:04:35.911 [35m[http-nio-8080-exec-7][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/csrf
+08-05-2020 01:04:35.916 [35m[http-nio-8080-exec-7][0;39m [1;31mERROR[0;39m c.a.o.s.JwtAuthenticationEntryPoint.commence - Responding with unauthorized error. Message - Full authentication is required to access this resource
+08-05-2020 01:04:36.080 [35m[http-nio-8080-exec-6][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2
+08-05-2020 01:04:36.080 [35m[http-nio-8080-exec-10][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2
+08-05-2020 01:04:36.081 [35m[http-nio-8080-exec-1][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2
+08-05-2020 01:04:36.081 [35m[http-nio-8080-exec-9][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2
+08-05-2020 01:04:36.081 [35m[http-nio-8080-exec-2][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2
+08-05-2020 01:04:38.258 [35m[http-nio-8080-exec-4][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2
+08-05-2020 01:04:45.429 [35m[http-nio-8080-exec-5][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/dylan
+08-05-2020 01:04:45.430 [35m[http-nio-8080-exec-5][0;39m [1;31mERROR[0;39m c.a.o.s.JwtAuthenticationEntryPoint.commence - Responding with unauthorized error. Message - Full authentication is required to access this resource
+08-05-2020 01:04:46.537 [35m[http-nio-8080-exec-8][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/dylan
+08-05-2020 01:04:46.538 [35m[http-nio-8080-exec-8][0;39m [1;31mERROR[0;39m c.a.o.s.JwtAuthenticationEntryPoint.commence - Responding with unauthorized error. Message - Full authentication is required to access this resource
+08-05-2020 01:05:31.547 [35m[http-nio-8080-exec-7][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/sign-in
+08-05-2020 01:06:07.478 [35m[http-nio-8080-exec-9][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/dylan
+08-05-2020 01:08:12.116 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m o.s.s.c.ThreadPoolTaskExecutor.shutdown - Shutting down ExecutorService 'applicationTaskExecutor'
+08-05-2020 01:08:12.119 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+08-05-2020 01:08:12.122 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+08-05-2020 01:08:12.137 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
+08-05-2020 01:08:27.547 [35m[restartedMain][0;39m [34mINFO [0;39m c.a.octopus.OctopusApplication.logStarting - Starting OctopusApplication on CNENCHEND15L4C with PID 18192 (D:\MyIdeaProject\octopus\target\classes started by chend15 in D:\MyIdeaProject\octopus)
+08-05-2020 01:08:27.551 [35m[restartedMain][0;39m [39mDEBUG[0;39m c.a.octopus.OctopusApplication.logStarting - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+08-05-2020 01:08:27.551 [35m[restartedMain][0;39m [34mINFO [0;39m c.a.octopus.OctopusApplication.logStartupProfileInfo - The following profiles are active: dev
+08-05-2020 01:08:27.610 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.restart.ChangeableUrls.logTo - The Class-Path manifest attribute in C:\Users\chend15\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.2\jaxb-runtime-2.3.2.jar referenced one or more files that do not exist: file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.xml.bind-api-2.3.2.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/txw2-2.3.2.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/istack-commons-runtime-3.0.8.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/stax-ex-1.8.1.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/FastInfoset-1.2.16.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.activation-api-1.2.1.jar
+08-05-2020 01:08:27.610 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+08-05-2020 01:08:27.610 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+08-05-2020 01:08:28.596 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+08-05-2020 01:08:28.688 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 79ms. Found 2 JPA repository interfaces.
+08-05-2020 01:08:29.193 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 01:08:29.197 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 01:08:29.200 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@3fc320ee' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 01:08:29.201 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 01:08:29.205 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 01:08:29.928 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+08-05-2020 01:08:29.941 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.coyote.http11.Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8080"]
+08-05-2020 01:08:29.942 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+08-05-2020 01:08:29.942 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/9.0.33]
+08-05-2020 01:08:30.105 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+08-05-2020 01:08:30.106 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.web.context.ContextLoader.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 2495 ms
+08-05-2020 01:08:30.316 [35m[restartedMain][0;39m [34mINFO [0;39m o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+08-05-2020 01:08:30.378 [35m[restartedMain][0;39m [34mINFO [0;39m org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 5.4.12.Final
+08-05-2020 01:08:30.516 [35m[restartedMain][0;39m [34mINFO [0;39m o.h.annotations.common.Version.<clinit> - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+08-05-2020 01:08:30.627 [35m[restartedMain][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+08-05-2020 01:08:30.913 [35m[restartedMain][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+08-05-2020 01:08:30.931 [35m[restartedMain][0;39m [34mINFO [0;39m org.hibernate.dialect.Dialect.<init> - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+08-05-2020 01:08:31.860 [35m[restartedMain][0;39m [34mINFO [0;39m o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+08-05-2020 01:08:31.867 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+08-05-2020 01:08:32.542 [35m[restartedMain][0;39m [31mWARN [0;39m o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+08-05-2020 01:08:32.711 [35m[restartedMain][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.init - Filter 'jwtRequestFilter' configured for use
+08-05-2020 01:08:32.738 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.a.OptionalLiveReloadServer.startServer - LiveReload server is running on port 35729
+08-05-2020 01:08:33.200 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+08-05-2020 01:08:33.333 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.s.web.DefaultSecurityFilterChain.<init> - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@53c575b5, org.springframework.security.web.context.SecurityContextPersistenceFilter@7ff6c11, org.springframework.security.web.header.HeaderWriterFilter@6bd5b08c, org.springframework.security.web.authentication.logout.LogoutFilter@3b0236d8, com.alphago365.octopus.security.JwtRequestFilter@1fee42ca, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1f7b6644, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@eaf43b5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@72b35a9b, org.springframework.security.web.session.SessionManagementFilter@edeef93, org.springframework.security.web.access.ExceptionTranslationFilter@6d2b0b02, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@d37749c]
+08-05-2020 01:08:33.475 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.s.c.ThreadPoolTaskExecutor.initialize - Initializing ExecutorService 'applicationTaskExecutor'
+08-05-2020 01:08:33.661 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.p.DocumentationPluginsBootstrapper.start - Context refreshed
+08-05-2020 01:08:33.695 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.p.DocumentationPluginsBootstrapper.start - Found 1 custom documentation plugin(s)
+08-05-2020 01:08:33.725 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.s.ApiListingReferenceScanner.scan - Scanning for api listing references
+08-05-2020 01:08:33.936 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.coyote.http11.Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8080"]
+08-05-2020 01:08:33.965 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+08-05-2020 01:08:33.967 [35m[restartedMain][0;39m [34mINFO [0;39m c.a.octopus.OctopusApplication.logStarted - Started OctopusApplication in 7.062 seconds (JVM running for 7.797)
+08-05-2020 01:08:36.369 [35m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+08-05-2020 01:08:36.370 [35m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+08-05-2020 01:08:36.380 [35m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 10 ms
+08-05-2020 01:08:36.402 [35m[http-nio-8080-exec-1][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/swagger-ui.html
+08-05-2020 01:08:36.467 [35m[http-nio-8080-exec-2][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/springfox.css
+08-05-2020 01:08:36.467 [35m[http-nio-8080-exec-4][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/swagger-ui-bundle.js
+08-05-2020 01:08:36.467 [35m[http-nio-8080-exec-3][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/swagger-ui.css
+08-05-2020 01:08:36.471 [35m[http-nio-8080-exec-5][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js
+08-05-2020 01:08:36.473 [35m[http-nio-8080-exec-6][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/springfox.js
+08-05-2020 01:08:36.677 [35m[http-nio-8080-exec-7][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/swagger-resources/configuration/ui
+08-05-2020 01:08:36.678 [35m[http-nio-8080-exec-8][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/favicon-32x32.png
+08-05-2020 01:08:36.738 [35m[http-nio-8080-exec-9][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/swagger-resources/configuration/security
+08-05-2020 01:08:36.755 [35m[http-nio-8080-exec-10][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/swagger-resources
+08-05-2020 01:08:36.790 [35m[http-nio-8080-exec-1][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/v2/api-docs
+08-05-2020 01:08:36.791 [35m[http-nio-8080-exec-2][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/
+08-05-2020 01:08:36.830 [35m[http-nio-8080-exec-6][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/swagger-ui.html
+08-05-2020 01:08:36.830 [35m[http-nio-8080-exec-3][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2
+08-05-2020 01:08:36.841 [35m[http-nio-8080-exec-5][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/csrf
+08-05-2020 01:08:36.847 [35m[http-nio-8080-exec-5][0;39m [1;31mERROR[0;39m c.a.o.s.JwtAuthenticationEntryPoint.commence - Responding with unauthorized error. Message - Full authentication is required to access this resource
+08-05-2020 01:08:37.079 [35m[http-nio-8080-exec-10][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2
+08-05-2020 01:08:37.080 [35m[http-nio-8080-exec-9][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2
+08-05-2020 01:08:37.080 [35m[http-nio-8080-exec-8][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2
+08-05-2020 01:08:37.080 [35m[http-nio-8080-exec-4][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2
+08-05-2020 01:08:37.082 [35m[http-nio-8080-exec-7][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2
+08-05-2020 01:08:37.221 [35m[http-nio-8080-exec-2][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2
+08-05-2020 01:09:06.325 [35m[http-nio-8080-exec-6][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/username-in-use
+08-05-2020 01:09:22.352 [35m[http-nio-8080-exec-3][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/username-in-use
+08-05-2020 03:05:37.955 [35m[HikariPool-1 housekeeper][0;39m [31mWARN [0;39m com.zaxxer.hikari.pool.HikariPool.run - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h55m6s949ms278µs400ns).
+08-05-2020 04:18:49.420 [35m[HikariPool-1 housekeeper][0;39m [31mWARN [0;39m com.zaxxer.hikari.pool.HikariPool.run - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h10m41s469ms595µs99ns).
+08-05-2020 08:26:54.289 [35m[HikariPool-1 housekeeper][0;39m [31mWARN [0;39m com.zaxxer.hikari.pool.HikariPool.run - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4h6m4s878ms526µs500ns).
+08-05-2020 08:48:21.497 [35m[HikariPool-1 housekeeper][0;39m [31mWARN [0;39m com.zaxxer.hikari.pool.HikariPool.run - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=19m27s215ms235µs700ns).
+08-05-2020 12:11:09.384 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m o.s.s.c.ThreadPoolTaskExecutor.shutdown - Shutting down ExecutorService 'applicationTaskExecutor'
+08-05-2020 12:11:09.388 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+08-05-2020 12:11:09.392 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+08-05-2020 12:11:09.409 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.
+08-05-2020 13:53:29.424 [35m[restartedMain][0;39m [34mINFO [0;39m c.a.octopus.OctopusApplication.logStarting - Starting OctopusApplication on CNENCHEND15L4C with PID 680 (D:\MyIdeaProject\octopus\target\classes started by chend15 in D:\MyIdeaProject\octopus)
+08-05-2020 13:53:29.430 [35m[restartedMain][0;39m [39mDEBUG[0;39m c.a.octopus.OctopusApplication.logStarting - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+08-05-2020 13:53:29.431 [35m[restartedMain][0;39m [34mINFO [0;39m c.a.octopus.OctopusApplication.logStartupProfileInfo - The following profiles are active: dev
+08-05-2020 13:53:29.536 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.restart.ChangeableUrls.logTo - The Class-Path manifest attribute in C:\Users\chend15\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.2\jaxb-runtime-2.3.2.jar referenced one or more files that do not exist: file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.xml.bind-api-2.3.2.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/txw2-2.3.2.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/istack-commons-runtime-3.0.8.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/stax-ex-1.8.1.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/FastInfoset-1.2.16.jar,file:/C:/Users/chend15/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.activation-api-1.2.1.jar
+08-05-2020 13:53:29.536 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+08-05-2020 13:53:29.537 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+08-05-2020 13:53:31.009 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+08-05-2020 13:53:31.115 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 94ms. Found 2 JPA repository interfaces.
+08-05-2020 13:53:31.810 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 13:53:31.816 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 13:53:31.818 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@6ecf7e2b' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 13:53:31.822 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 13:53:31.827 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+08-05-2020 13:53:32.818 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+08-05-2020 13:53:32.833 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.coyote.http11.Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8080"]
+08-05-2020 13:53:32.834 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+08-05-2020 13:53:32.835 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/9.0.33]
+08-05-2020 13:53:33.068 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+08-05-2020 13:53:33.068 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.web.context.ContextLoader.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 3531 ms
+08-05-2020 13:53:33.345 [35m[restartedMain][0;39m [34mINFO [0;39m o.h.jpa.internal.util.LogHelper.logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+08-05-2020 13:53:33.442 [35m[restartedMain][0;39m [34mINFO [0;39m org.hibernate.Version.logVersion - HHH000412: Hibernate ORM core version 5.4.12.Final
+08-05-2020 13:53:33.643 [35m[restartedMain][0;39m [34mINFO [0;39m o.h.annotations.common.Version.<clinit> - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+08-05-2020 13:53:33.807 [35m[restartedMain][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+08-05-2020 13:53:34.265 [35m[restartedMain][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+08-05-2020 13:53:34.289 [35m[restartedMain][0;39m [34mINFO [0;39m org.hibernate.dialect.Dialect.<init> - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+08-05-2020 13:53:35.741 [35m[restartedMain][0;39m [34mINFO [0;39m o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+08-05-2020 13:53:35.754 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+08-05-2020 13:53:36.677 [35m[restartedMain][0;39m [31mWARN [0;39m o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+08-05-2020 13:53:36.888 [35m[restartedMain][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.init - Filter 'jwtRequestFilter' configured for use
+08-05-2020 13:53:36.923 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.d.a.OptionalLiveReloadServer.startServer - LiveReload server is running on port 35729
+08-05-2020 13:53:37.577 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.PropertySourcedRequestMappingHandlerMapping.initHandlerMethods - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+08-05-2020 13:53:37.798 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.s.web.DefaultSecurityFilterChain.<init> - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2e834973, org.springframework.security.web.context.SecurityContextPersistenceFilter@45307823, org.springframework.security.web.header.HeaderWriterFilter@264b6395, org.springframework.security.web.authentication.logout.LogoutFilter@6cc2586f, com.alphago365.octopus.security.JwtRequestFilter@2cab5b82, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@ae15223, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3a75a00a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@270714a6, org.springframework.security.web.session.SessionManagementFilter@51612b2a, org.springframework.security.web.access.ExceptionTranslationFilter@44e148e0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7f666108]
+08-05-2020 13:53:37.984 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.s.c.ThreadPoolTaskExecutor.initialize - Initializing ExecutorService 'applicationTaskExecutor'
+08-05-2020 13:53:38.256 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.p.DocumentationPluginsBootstrapper.start - Context refreshed
+08-05-2020 13:53:38.297 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.p.DocumentationPluginsBootstrapper.start - Found 1 custom documentation plugin(s)
+08-05-2020 13:53:38.343 [35m[restartedMain][0;39m [34mINFO [0;39m s.d.s.w.s.ApiListingReferenceScanner.scan - Scanning for api listing references
+08-05-2020 13:53:38.651 [35m[restartedMain][0;39m [34mINFO [0;39m o.a.coyote.http11.Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8080"]
+08-05-2020 13:53:38.709 [35m[restartedMain][0;39m [34mINFO [0;39m o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+08-05-2020 13:53:38.712 [35m[restartedMain][0;39m [34mINFO [0;39m c.a.octopus.OctopusApplication.logStarted - Started OctopusApplication in 10.244 seconds (JVM running for 11.359)
+08-05-2020 13:53:51.510 [35m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+08-05-2020 13:53:51.510 [35m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+08-05-2020 13:53:51.533 [35m[http-nio-8080-exec-1][0;39m [34mINFO [0;39m o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 21 ms
+08-05-2020 13:53:51.591 [35m[http-nio-8080-exec-1][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/
+08-05-2020 13:53:51.704 [35m[http-nio-8080-exec-2][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/swagger-ui.html
+08-05-2020 13:53:51.818 [35m[http-nio-8080-exec-4][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/swagger-ui.css
+08-05-2020 13:53:51.818 [35m[http-nio-8080-exec-3][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/springfox.css
+08-05-2020 13:53:51.826 [35m[http-nio-8080-exec-5][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/swagger-ui-bundle.js
+08-05-2020 13:53:51.826 [35m[http-nio-8080-exec-6][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js
+08-05-2020 13:53:51.832 [35m[http-nio-8080-exec-7][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/springfox.js
+08-05-2020 13:53:52.380 [35m[http-nio-8080-exec-8][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/swagger-resources/configuration/ui
+08-05-2020 13:53:52.469 [35m[http-nio-8080-exec-9][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/swagger-resources/configuration/security
+08-05-2020 13:53:52.491 [35m[http-nio-8080-exec-10][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/swagger-resources
+08-05-2020 13:53:52.572 [35m[http-nio-8080-exec-1][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/v2/api-docs
+08-05-2020 13:53:52.573 [35m[http-nio-8080-exec-2][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/
+08-05-2020 13:53:52.643 [35m[http-nio-8080-exec-3][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/swagger-ui.html
+08-05-2020 13:53:52.645 [35m[http-nio-8080-exec-7][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2
+08-05-2020 13:53:52.674 [35m[http-nio-8080-exec-6][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/csrf
+08-05-2020 13:53:52.687 [35m[http-nio-8080-exec-6][0;39m [1;31mERROR[0;39m c.a.o.s.JwtAuthenticationEntryPoint.commence - Responding with unauthorized error. Message - Full authentication is required to access this resource
+08-05-2020 13:53:53.173 [35m[http-nio-8080-exec-4][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2
+08-05-2020 13:53:53.176 [35m[http-nio-8080-exec-8][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2
+08-05-2020 13:53:53.177 [35m[http-nio-8080-exec-10][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-600.woff2
+08-05-2020 13:53:53.174 [35m[http-nio-8080-exec-5][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2
+08-05-2020 13:53:53.179 [35m[http-nio-8080-exec-9][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-600.woff2
+08-05-2020 13:54:02.423 [35m[http-nio-8080-exec-2][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-regular.woff2
+08-05-2020 13:54:12.714 [35m[http-nio-8080-exec-3][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/dylan
+08-05-2020 13:54:12.715 [35m[http-nio-8080-exec-3][0;39m [1;31mERROR[0;39m c.a.o.s.JwtAuthenticationEntryPoint.commence - Responding with unauthorized error. Message - Full authentication is required to access this resource
+08-05-2020 13:54:50.407 [35m[http-nio-8080-exec-7][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/username-in-use
+08-05-2020 13:54:53.440 [35m[http-nio-8080-exec-6][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/username-in-use
+08-05-2020 13:55:52.625 [35m[http-nio-8080-exec-9][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/sign-up
+08-05-2020 13:56:15.028 [35m[http-nio-8080-exec-5][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/sign-in
+08-05-2020 13:56:50.440 [35m[http-nio-8080-exec-2][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/dylan
+08-05-2020 13:56:58.026 [35m[http-nio-8080-exec-3][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/dylan1
+08-05-2020 13:56:58.047 [35m[http-nio-8080-exec-3][0;39m [31mWARN [0;39m o.s.w.s.m.a.ResponseStatusExceptionResolver.logException - Resolved [com.alphago365.octopus.exception.UserForbiddenException: Only yourself username can be allowed]
+08-05-2020 13:57:16.654 [35m[http-nio-8080-exec-7][0;39m [39mDEBUG[0;39m c.a.o.security.JwtRequestFilter.doFilterInternal - Jwt request filter url: http://127.0.0.1:8080/users/current
+08-05-2020 13:59:54.132 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m o.s.s.c.ThreadPoolTaskExecutor.shutdown - Shutting down ExecutorService 'applicationTaskExecutor'
+08-05-2020 13:59:54.147 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy - Closing JPA EntityManagerFactory for persistence unit 'default'
+08-05-2020 13:59:54.168 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown initiated...
+08-05-2020 13:59:54.225 [35m[SpringContextShutdownHook][0;39m [34mINFO [0;39m com.zaxxer.hikari.HikariDataSource.close - HikariPool-1 - Shutdown completed.

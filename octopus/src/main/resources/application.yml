@@ -1,0 +1,32 @@
+spring:
+  profiles:
+    active: dev
+---
+server:
+  error:
+    include-stacktrace: never
+spring:
+  profiles: dev
+  datasource:
+    hikari:
+      connectionTimeout: 30000
+      maximumPoolSize: 10
+    url: jdbc:postgresql://localhost:5432/octopusdb
+    username: octopus
+    password: changeme
+    initialization-mode: always
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        enable_lazy_load_no_trans: true
+    show-sql: false
+
+jwt:
+  secret: octopus
+  expiration: 86400000 # 24h = 24 * 60 * 60 * 1000
