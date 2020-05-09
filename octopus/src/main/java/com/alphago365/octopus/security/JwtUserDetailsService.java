@@ -1,7 +1,7 @@
 package com.alphago365.octopus.security;
 
 import com.alphago365.octopus.exception.InvalidCredentialException;
-import com.alphago365.octopus.exception.RoleNotFoundException;
+import com.alphago365.octopus.exception.ResourceNotFoundException;
 import com.alphago365.octopus.model.Role;
 import com.alphago365.octopus.model.RoleName;
 import com.alphago365.octopus.model.User;
@@ -53,8 +53,8 @@ public class JwtUserDetailsService implements UserDetailsService {
     @Transactional
     public User save(User user) {
         RoleName roleName = RoleName.ROLE_USER;
-        Role role = roleRepository.findByName(roleName).<RoleNotFoundException>orElseThrow(() -> {
-            throw new RoleNotFoundException("Role not found by name: " + roleName.name());
+        Role role = roleRepository.findByName(roleName).<ResourceNotFoundException>orElseThrow(() -> {
+            throw new ResourceNotFoundException("Role not found by name: " + roleName.name());
         });
         user.setRoles(Collections.singleton(role));
         return userRepository.save(user);

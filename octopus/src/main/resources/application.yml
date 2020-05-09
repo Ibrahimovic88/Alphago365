@@ -30,3 +30,6 @@ spring:
 jwt:
   secret: octopus
   expiration: 86400000 # 24h = 24 * 60 * 60 * 1000
+
+job:
+  poolSize: 1

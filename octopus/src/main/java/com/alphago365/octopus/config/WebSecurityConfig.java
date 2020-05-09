@@ -51,7 +51,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/**/users/cellphone-in-use",
             "/**/users/sign-in",
             "/**/users/sign-up",
-            "/**/users/sign-out"
+            "/**/users/sign-out",
+
+            // match related whitelist
+            "/**/matches/**"
     };
 
     @Autowired
