@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.UNAUTHORIZED)
 public class InvalidCredentialException extends AuthenticationException {
+
     public InvalidCredentialException(String msg) {
         super(msg);
     }

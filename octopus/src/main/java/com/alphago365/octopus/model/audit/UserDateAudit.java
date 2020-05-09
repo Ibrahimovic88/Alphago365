@@ -5,6 +5,7 @@ import lombok.Data;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.LastModifiedBy;
 
+import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
 
@@ -15,9 +16,11 @@ import javax.persistence.MappedSuperclass;
 )
 @Data
 public class UserDateAudit extends DateAudit {
+
     @CreatedBy
-    protected Long createdBy; // user id
+    @Column(updatable = false)
+    protected Long createdBy; // user date
 
     @LastModifiedBy
-    protected Long updatedBy; // user id
+    protected Long updatedBy;
 }

@@ -16,6 +16,8 @@ public class Match extends DateAudit {
     @Id
     private Long id;
 
+    private Integer serialNumber;
+
     private String league;
 
     private String home;
@@ -27,5 +29,4 @@ public class Match extends DateAudit {
     public String toString() {
         return String.format("%d %s %s %svs%s", id, league, kickoffTime.toString(), home, away);
     }
-
 }

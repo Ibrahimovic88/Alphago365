@@ -1,7 +1,7 @@
 package com.alphago365.octopus.controller;
 
 
-import com.alphago365.octopus.MatchService;
+import com.alphago365.octopus.service.MatchService;
 import com.alphago365.octopus.model.Match;
 import com.alphago365.octopus.payload.AppResponse;
 import io.swagger.annotations.Api;
@@ -46,6 +46,7 @@ public class MatchController {
             @ApiResponse(code = 201, message = "Successfully create match", response = AppResponse.class)
     })
     @PostMapping
+//    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> add(@Valid @RequestBody Match match) {
         matchService.save(match);
         return ResponseEntity.ok(new AppResponse(true, "Successfully create match"));
