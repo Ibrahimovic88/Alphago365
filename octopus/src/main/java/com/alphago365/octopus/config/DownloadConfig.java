@@ -14,8 +14,8 @@ public class DownloadConfig {
     private String matchDate = LocalDate.now().minusDays(1).toString(); // default;
 
     private String matchUrl;
-
     private String oddsUrl;
+    private String handicapUrl;
 
     private long delay;
 

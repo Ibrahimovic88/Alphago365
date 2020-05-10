@@ -11,10 +11,10 @@ import java.util.List;
 
 @EqualsAndHashCode(callSuper = false)
 @Entity
-@Table(name = "odds")
+@Table(name = "handicaps")
 @Data
 @NoArgsConstructor
-public class Odds extends DateAudit {
+public class Handicap extends DateAudit {
 
     @Id
     private Long id;
@@ -31,20 +31,18 @@ public class Odds extends DateAudit {
 
     private int displayOrder;
 
-    @OneToMany(mappedBy = "odds", cascade = CascadeType.ALL)
-    private List<OddsChange> changeHistories;
+    @OneToMany(mappedBy = "handicap", cascade = CascadeType.ALL)
+    private List<HandicapChange> changeHistories;
 
     private double ratioHome;
-    private double ratioDraw;
     private double ratioAway;
 
     private double kellyHome;
-    private double kellyDraw;
     private double kellyAway;
 
     private double payoff;
 
-    public Odds(Match match) {
+    public Handicap(Match match) {
         this.match = match;
     }
 

@@ -39,6 +39,7 @@ download:
   delay: 5000 #5s
   matchUrl: 'https://as.okooo.com/I/?method=mc.data.schedule.getOkoooSchedule&LotteryType=SportterySoccerMix&LotteryNo='
   oddsUrl: 'https://as.okooo.com/I/?method=mc.data.odds.getOdds&SportId=1&MatchID='
+  handicapUrl: 'https://as.okooo.com/I/?method=mc.data.ah.getAh&SportId=1&MatchID='
 
   oddsProviderIds:
     - 24 # 99Avg

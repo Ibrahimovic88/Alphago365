@@ -1,10 +1,11 @@
 package com.alphago365.octopus.parser;
 
 import com.alphago365.octopus.exception.ParseException;
+import com.alphago365.octopus.model.Handicap;
 import com.alphago365.octopus.model.Match;
-import com.alphago365.octopus.model.Odds;
 import com.alphago365.octopus.model.Provider;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -14,68 +15,67 @@ import java.util.List;
 
 @Component
 @Scope("prototype")
-public class OddsParser extends MatchRelatedParser<Odds> {
+public class HandicapParser extends MatchRelatedParser<Handicap> {
 
-    public OddsParser(@NotNull Match match) {
+    @Autowired
+    public HandicapParser(@NotNull Match match) {
         super(match);
     }
 
     @Override
-    public List<Odds> parseList(@NotNull String json) throws ParseException {
+    public List<Handicap> parseList(@NotNull String json) throws ParseException {
         JSONObject root = new JSONObject(json);
         int code = root.getInt("code");
         if (code != 0) {
             String reason = root.getString("code_str");
             throw new ParseException(reason);
         }
-        List<Odds> oddsList = new ArrayList<>();
+        List<Handicap> handicapList = new ArrayList<>();
 
         root.getJSONArray("info").forEach(item -> {
-            Odds odds = parseInfoItem((JSONObject) item);
-            Provider provider = odds.getProvider();
+            Handicap handicap = parseInfoItem((JSONObject) item);
+            Provider provider = handicap.getProvider();
             if (!isIncluded(provider)) {
                 return;
             }
-            oddsList.add(odds);
+            handicapList.add(handicap);
         });
 
-        return oddsList;
+        return handicapList;
     }
 
-    private Odds parseInfoItem(JSONObject jsonObject) {
-        Odds odds = new Odds(match);
+    private Handicap parseInfoItem(JSONObject jsonObject) {
+        Handicap handicap = new Handicap(match);
 
         // display order
-        odds.setDisplayOrder(jsonObject.getInt("DisplayOrder"));
+        handicap.setDisplayOrder(jsonObject.getInt("DisplayOrder"));
 
         // provider
         int providerId = jsonObject.getInt("provider_id");
         String providerName = jsonObject.getString("provider_name");
         Provider provider = new Provider(providerId, providerName);
-        odds.setProvider(provider);
+        handicap.setProvider(provider);
 
         // id
-        odds.setId(Long.parseLong(String.format("%d%d", match.getId(), providerId))); // concat match id with provider id
+        handicap.setId(Long.parseLong(String.format("%d%d", match.getId(), providerId))); // concat match id with provider id
 
         // Ratio
         JSONObject ratio = jsonObject.getJSONObject("Radio");
-        odds.setRatioHome(ratio.getDouble("home"));
-        odds.setRatioDraw(ratio.getDouble("draw"));
-        odds.setRatioAway(ratio.getDouble("away"));
+        handicap.setRatioHome(ratio.getDouble("home"));
+        handicap.setRatioAway(ratio.getDouble("away"));
 
         // Kelly
         JSONObject kelly = jsonObject.getJSONObject("Kelly");
-        odds.setKellyHome(kelly.getDouble("home"));
-        odds.setKellyDraw(kelly.getDouble("draw"));
-        odds.setKellyAway(kelly.getDouble("away"));
+        handicap.setKellyHome(kelly.getDouble("home"));
+        handicap.setKellyAway(kelly.getDouble("away"));
 
         // Payoff
-        odds.setPayoff(jsonObject.getDouble("Payoff"));
+        handicap.setPayoff(jsonObject.getDouble("Payoff"));
 
-        return odds;
+        return handicap;
     }
 
     private boolean isIncluded(@NotNull Provider provider) {
-        return downloadConfig.getOddsProviderIds().contains(provider.getId());
+        return downloadConfig.getHandicapProviderIds().contains(provider.getId());
     }
 }

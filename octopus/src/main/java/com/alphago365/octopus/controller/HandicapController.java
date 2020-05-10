@@ -1,11 +1,11 @@
 package com.alphago365.octopus.controller;
 
 
+import com.alphago365.octopus.model.Handicap;
 import com.alphago365.octopus.model.Match;
-import com.alphago365.octopus.model.Odds;
 import com.alphago365.octopus.model.Provider;
+import com.alphago365.octopus.service.HandicapService;
 import com.alphago365.octopus.service.MatchService;
-import com.alphago365.octopus.service.OddsService;
 import com.alphago365.octopus.service.ProviderService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -21,8 +21,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@Api(tags = "odds")
-public class OddsController {
+@Api(tags = "handicap")
+public class HandicapController {
 
     @Autowired
     private MatchService matchService;
@@ -31,30 +31,30 @@ public class OddsController {
     private ProviderService providerService;
 
     @Autowired
-    private OddsService oddsService;
+    private HandicapService handicapService;
 
-    @ApiOperation(value = "get odds list by match id", tags = {"odds"})
+    @ApiOperation(value = "get handicap list by match id", tags = {"handicap"})
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successfully get odds list", response = List.class)
+            @ApiResponse(code = 200, message = "Successfully get handicap list", response = List.class)
     })
-    @GetMapping(value = "/matches/{match-id}/odds")
-    public List<Odds> getOddsListByMatchId(@PathVariable(name = "match-id") long matchId) {
+    @GetMapping(value = "/matches/{match-id}/handicap")
+    public List<Handicap> getListByMatchId(@PathVariable(name = "match-id") long matchId) {
         Match match = matchService.findById(matchId);
-        return oddsService.findByMatch(match)
+        return handicapService.findByMatch(match)
                 .parallelStream()
-                .sorted(Comparator.comparing(Odds::getDisplayOrder))
+                .sorted(Comparator.comparing(Handicap::getDisplayOrder))
                 .collect(Collectors.toList());
     }
 
-    @ApiOperation(value = "get odds by match id and provider id", tags = {"odds"})
+    @ApiOperation(value = "get handicap by match id and provider id", tags = {"handicap"})
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successfully get odds", response = Odds.class)
+            @ApiResponse(code = 200, message = "Successfully get odds", response = Handicap.class)
     })
-    @GetMapping(value = "/matches/{match-id}/odds/{provider-id}")
-    public Odds getByMatchIdAndProviderId(@PathVariable(name = "match-id") long matchId,
-                                              @PathVariable(name = "provider-id") int providerId) {
+    @GetMapping(value = "/matches/{match-id}/handicap/{provider-id}")
+    public Handicap getByMatchIdAndProviderId(@PathVariable(name = "match-id") long matchId,
+                                                  @PathVariable(name = "provider-id") int providerId) {
         Match match = matchService.findById(matchId);
         Provider provider = providerService.findById(providerId);
-        return oddsService.findByMatchAndProvider(match, provider);
+        return handicapService.findByMatchAndProvider(match, provider);
     }
 }
