@@ -54,7 +54,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/**/users/sign-out",
 
             // match related whitelist
-            "/**/matches/**"
+            "/**/matches/**",
+
+            // odds related whitelist
+            "/**/matches/**/odds/**",
     };
 
     @Autowired

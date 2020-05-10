@@ -35,21 +35,34 @@ job:
   poolSize: 1
 
 download:
+  matchDate: '2020-05-07'
   delay: 5000 #5s
   matchUrl: 'https://as.okooo.com/I/?method=mc.data.schedule.getOkoooSchedule&LotteryType=SportterySoccerMix&LotteryNo='
+  oddsUrl: 'https://as.okooo.com/I/?method=mc.data.odds.getOdds&SportId=1&MatchID='
+
+  oddsProviderIds:
+    - 24 # 99Avg
+    - 82 # Ladbrokes
+    - 27 # Bet365
+
+  handicapProviderIds:
+    - 27 # Bet365
+    - 43 # Interwetten
+    - 35 # Easybets
 
 # spring cron job format
-#1 2 3 4 5 6 Index
-#- - - - - -
-#* * * * * * command to be executed
-#- - - - - -
-#| | | | | |
-#| | | | | ------- Day of week (MON - SUN)
-#| | | | --------- Month (1 - 12)
-#| | | ----------- Day of month (1 - 31)
-#| |-------------- Hour (0 - 23)
-#| --------------- Minute (0 - 59)
-#----------------- Seconds (0 - 59)
+# 1 2 3 4 5 6 Index
+# - - - - - -
+# * * * * * * command to be executed
+# - - - - - -
+# | | | | | |
+# | | | | | ------- Day of week (MON - SUN)
+# | | | | --------- Month (1 - 12)
+# | | | ----------- Day of month (1 - 31)
+# | |-------------- Hour (0 - 23)
+# | --------------- Minute (0 - 59)
+# ----------------- Seconds (0 - 59)
 scheduled:
   cron:
-    downloadMatch: '* */1 * * * *'
+    downloadMatch: '0 0/1 * * * *'
+    updateMatch: '0/30 * * * * *'

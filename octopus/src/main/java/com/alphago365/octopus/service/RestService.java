@@ -40,7 +40,7 @@ public class RestService {
     }
 
     private void logResponseDetails(ResponseEntity<?> response) {
-        log.info("Headers: {}", response.getHeaders());
+        log.debug("Headers: {}", response.getHeaders());
         log.debug("Response status: {}", response.getStatusCode().toString());
         log.debug("Response body: {}", response.getBody());
     }

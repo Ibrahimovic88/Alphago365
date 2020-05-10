@@ -31,7 +31,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.net.URI;
 import java.util.Collection;
-import java.util.function.Consumer;
 
 @RestController
 @RequestMapping("/users")
@@ -125,9 +124,9 @@ public class UserController {
             @ApiResponse(code = 404, message = "user not found by username"),
             @ApiResponse(code = 403, message = "current user not allow to visit other username")
     })
-    @GetMapping(value = "/{username}")
+    @GetMapping
     @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<?> findByUsername(@Valid @NotBlank @PathVariable(value = "username") String username) {
+    public ResponseEntity<?> findByUsername(@Valid @NotBlank @RequestParam(value = "username") String username) {
         UserPrincipal userPrincipal = (UserPrincipal) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String currUsername = userPrincipal.getUsername();
         Collection<GrantedAuthority> authorities = userPrincipal.getAuthorities();

@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
-import java.time.temporal.ChronoUnit;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -22,15 +19,19 @@ public class MatchService {
     private MatchRepository matchRepository;
 
     @Transactional
-    public List<Match> getMatchList(int latestDays) {
-        Instant now = LocalDateTime.now().toInstant(ZoneOffset.UTC);
-        Instant start = now.minus(latestDays, ChronoUnit.DAYS);
-        Instant end = now.plus(latestDays, ChronoUnit.DAYS);
-        return matchRepository.findByKickoffTimeBetween(start, end);
+    public List<Match> getMatchListOfLatestDays(int latestDays) {
+        LocalDate today = LocalDate.now();
+        LocalDate start = today.minusDays(latestDays);
+        LocalDate end = today.plusDays(latestDays);
+        return matchRepository.findByDateBetween(start, end);
     }
 
     @Transactional
     public void save(Match match) {
+        if (matchRepository.existsById(match.getId())) {
+            log.warn("Skip to save existing match " + match);
+            return;
+        }
         matchRepository.save(match);
     }
 

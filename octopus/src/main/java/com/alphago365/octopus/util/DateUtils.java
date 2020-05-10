@@ -1,5 +1,6 @@
 package com.alphago365.octopus.util;
 
+import javax.swing.text.DateFormatter;
 import javax.validation.constraints.NotNull;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
@@ -18,6 +19,10 @@ public class DateUtils {
 
     public static LocalDate asLocalDate(Date date) {
         return Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+    }
+
+    public static LocalDate parse(String date, String pattern) {
+        return LocalDate.parse(date, DateTimeFormatter.ofPattern(pattern));
     }
 
     public static LocalDateTime asLocalDateTime(long milliseconds) {

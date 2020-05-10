@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
@@ -43,8 +44,8 @@ public class MatchParser extends ListParser<Match> {
     private Match parseMatchMatchItem(JSONObject item) {
 
         Match match = new Match();
-
         match.setId(item.getLong("MatchID"));
+        match.setDate(DateUtils.parse(item.getString("BetDate"), "yyyy-MM-dd"));
         match.setSerialNumber(item.getInt("MatchOrder"));
         match.setLeague(item.getString("LeagueName"));
         match.setHome(item.getString("HomeName"));

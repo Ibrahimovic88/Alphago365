@@ -10,7 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
+import javax.validation.constraints.NotNull;
+import java.util.Collections;
 import java.util.List;
 
 @Scope("prototype")
@@ -24,19 +25,34 @@ public class MatchJob extends DownloadJob {
     @Autowired
     private MatchService matchService;
 
-    public MatchJob(long delay) {
+    @NotNull
+    private final String matchDate;
+
+    public MatchJob(long delay, String date) {
         super("MJ", delay);
+        this.matchDate = date;
     }
 
     @Override
     public void runJob() {
-        String url = downloadConfig.getMatchUrl() + LocalDate.now().minusDays(1).toString();
-        String json = restService.getJson(url);
+        save(parse(download()));
+    }
+
+    private void save(List<Match> matchList) {
+        matchService.saveAll(matchList);
+    }
+
+    private List<Match> parse(String json) {
         try {
-            List<Match> matchList = matchParser.parseResponse(json);
-            matchService.saveAll(matchList);
+            return matchParser.parseResponse(json);
         } catch (ParseException e) {
-            log.error("Download match error", e);
+            log.error("Parse match error", e);
         }
+        return Collections.emptyList();
+    }
+
+    private String download() {
+        String url = downloadConfig.getMatchUrl() + matchDate;
+        return restService.getJson(url);
     }
 }
