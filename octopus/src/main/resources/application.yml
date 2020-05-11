@@ -20,12 +20,12 @@ spring:
       INDENT_OUTPUT: true
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         enable_lazy_load_no_trans: true
-    show-sql: false
+    show-sql: true
 
 jwt:
   secret: octopus
@@ -33,7 +33,7 @@ jwt:
 
 job:
   poolSize: 1
-  minIntervalSeconds: 3
+  minSleepMilliseconds: 3000
 
 download:
   matchDate: '2020-05-07'
@@ -84,3 +84,86 @@ scheduled:
   cron:
     downloadMatch: '0 0/1 * * * *'
     updateMatch: '0/30 * * * * *'
+
+---
+server:
+  error:
+    include-stacktrace: never
+spring:
+  profiles: prod
+  datasource:
+    hikari:
+      connectionTimeout: 60000
+      maximumPoolSize: 10
+    url: jdbc:postgresql://localhost:5432/octopusdb
+    username: octopus
+    password: changeme
+    initialization-mode: always
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        enable_lazy_load_no_trans: true
+    show-sql: false
+
+jwt:
+  secret: octopus
+  expiration: 86400000 # 24h = 24 * 60 * 60 * 1000
+
+job:
+  poolSize: 1
+  minSleepMilliseconds: 3000
+
+download:
+  matchDelay: 0
+  oddsDelay: 3000 #3s
+  oddsChangeDelay: 3000
+
+  handicapDelay: 3000
+  handicapChangeDelay: 3000
+
+  overunderDelay: 3000 #3s
+  overunderChangeDelay: 3000 #3s
+
+  matchUrl: 'https://as.okooo.com/I/?method=mc.data.schedule.getOkoooSchedule&LotteryType=SportterySoccerMix&LotteryNo=DATE_PLACEHOLDER'
+
+  oddsUrl: 'https://as.okooo.com/I/?method=mc.data.odds.getOdds&SportId=1&MatchID=MATCH_ID_PLACEHOLDER'
+  oddsChangeUrl: 'https://as.okooo.com/I/?method=mc.data.stat.getstat&SportId=1&MatchID=MATCH_ID_PLACEHOLDER&LId=PROVIDER_ID_PLACEHOLDER&bettingTypeId=1'
+
+  handicapUrl: 'https://as.okooo.com/I/?method=mc.data.ah.getAh&SportId=1&MatchID=MATCH_ID_PLACEHOLDER&betting_type_id=2'
+  handicapChangeUrl: 'https://as.okooo.com/I/?method=mc.data.stat.getstat&SportId=1&MatchID=MATCH_ID_PLACEHOLDER&LId=PROVIDER_ID_PLACEHOLDER&bettingTypeId=2'
+
+  overunderUrl: 'https://as.okooo.com/I/?method=mc.data.ah.getAh&SportId=1&MatchID=MATCH_ID_PLACEHOLDER&betting_type_id=3'
+  overunderChangeUrl: 'https://as.okooo.com/I/?method=mc.data.stat.getstat&SportId=1&MatchID=MATCH_ID_PLACEHOLDER&LId=PROVIDER_ID_PLACEHOLDER&bettingTypeId=3'
+
+  oddsProviderIds:
+    - 24 # 99Avg
+    - 82 # Ladbrokes
+    - 27 # Bet365
+
+  handicapProviderIds:
+    - 27 # Bet365
+    - 43 # Interwetten
+    - 35 # Easybets
+
+# spring cron job format
+# 1 2 3 4 5 6 Index
+# - - - - - -
+# * * * * * * command to be executed
+# - - - - - -
+# | | | | | |
+# | | | | | ------- Day of week (MON - SUN)
+# | | | | --------- Month (1 - 12)
+# | | | ----------- Day of month (1 - 31)
+# | |-------------- Hour (0 - 23)
+# | --------------- Minute (0 - 59)
+# ----------------- Seconds (0 - 59)
+scheduled:
+  cron:
+    downloadMatch: '* * 0/3 * * *'
+    updateMatch: '* 0/5 * * * *'

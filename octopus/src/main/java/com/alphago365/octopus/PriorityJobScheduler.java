@@ -16,39 +16,39 @@ import java.util.concurrent.atomic.AtomicBoolean;
 @Component
 public class PriorityJobScheduler {
 
-    private final JobConfig jobConfig;
-
     private final ExecutorService priorityJobPoolExecutor;
     private final ExecutorService priorityJobScheduler = Executors.newSingleThreadExecutor();
     private final DelayQueue<Job> jobDelayQueue;
     private final AtomicBoolean running = new AtomicBoolean(true);
 
     public PriorityJobScheduler(JobConfig jobConfig) {
-        this.jobConfig = jobConfig;
         priorityJobPoolExecutor = Executors.newFixedThreadPool(jobConfig.getPoolSize());
         jobDelayQueue = new DelayQueue<>();
-        final long minIntervalSeconds = jobConfig.getMinIntervalSeconds();
+        final long minSleepMilliseconds = jobConfig.getMinSleepMilliseconds();
         priorityJobScheduler.execute(() -> {
-            LocalDateTime lastTakeTime = null;
-            while (running.weakCompareAndSet(true, true)) {
-                if (lastTakeTime != null) {
-                    long intervalSeconds = ChronoUnit.SECONDS.between(lastTakeTime, LocalDateTime.now());
-                    if (intervalSeconds <= minIntervalSeconds) {
-                        log.warn(String.format("Sleep %d seconds, due to interval from last job %d is less than %d", minIntervalSeconds, intervalSeconds, minIntervalSeconds));
+            LocalDateTime lastExecuteTime = null;
+            while (running.compareAndSet(true, true)) {
+                Job job;
+                try {
+                    job = jobDelayQueue.take();
+                } catch (InterruptedException e) {
+                    log.error(e.getMessage());
+                    break;
+                }
+                if (lastExecuteTime != null) {
+                    long intervalMilliseconds = ChronoUnit.MILLIS.between(lastExecuteTime, LocalDateTime.now());
+                    if (intervalMilliseconds <= minSleepMilliseconds) {
+                        log.warn(String.format("Sleep %dms, due to interval from last job %dms is less than %dms",
+                                minSleepMilliseconds, intervalMilliseconds, minSleepMilliseconds));
                         try {
-                            Thread.sleep(minIntervalSeconds * 1000);
+                            Thread.sleep(minSleepMilliseconds);
                         } catch (InterruptedException e) {
                             log.error(e.getMessage());
                         }
                     }
                 }
-                try {
-                    priorityJobPoolExecutor.execute(jobDelayQueue.take());
-                } catch (InterruptedException e) {
-                    log.error(e.getMessage());
-                    break;
-                }
-                lastTakeTime = LocalDateTime.now();
+                lastExecuteTime = LocalDateTime.now();
+                priorityJobPoolExecutor.execute(job);
             }
         });
     }

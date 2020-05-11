@@ -1,12 +1,8 @@
 package com.alphago365.octopus.controller;
 
 
-import com.alphago365.octopus.model.Match;
 import com.alphago365.octopus.model.Odds;
-import com.alphago365.octopus.model.Provider;
-import com.alphago365.octopus.service.MatchService;
 import com.alphago365.octopus.service.OddsService;
-import com.alphago365.octopus.service.ProviderService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -23,12 +19,6 @@ import java.util.List;
 public class OddsController {
 
     @Autowired
-    private MatchService matchService;
-
-    @Autowired
-    private ProviderService providerService;
-
-    @Autowired
     private OddsService oddsService;
 
     @ApiOperation(value = "get odds list by match id", tags = {"odds"})
@@ -36,9 +26,8 @@ public class OddsController {
             @ApiResponse(code = 200, message = "Successfully get odds list", response = List.class)
     })
     @GetMapping(value = "/matches/{match-id}/odds")
-    public List<Odds> getOddsListByMatchId(@PathVariable(name = "match-id") long matchId) {
-        Match match = matchService.findById(matchId);
-        return oddsService.findByMatch(match);
+    public List<Odds> getListByMatchId(@PathVariable(name = "match-id") long matchId) {
+        return oddsService.findByMatchId(matchId);
     }
 
     @ApiOperation(value = "get odds by match id and provider id", tags = {"odds"})
@@ -48,8 +37,6 @@ public class OddsController {
     @GetMapping(value = "/matches/{match-id}/odds/{provider-id}")
     public Odds getByMatchIdAndProviderId(@PathVariable(name = "match-id") long matchId,
                                           @PathVariable(name = "provider-id") int providerId) {
-        Match match = matchService.findById(matchId);
-        Provider provider = providerService.findById(providerId);
-        return oddsService.findByMatchAndProvider(match, provider);
+        return oddsService.findByMatchIdAndProviderId(matchId, providerId);
     }
 }

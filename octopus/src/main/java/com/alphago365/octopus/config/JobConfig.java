@@ -9,5 +9,5 @@ public class JobConfig {
 
     private int poolSize = 1;
 
-    private long minIntervalSeconds;
+    private long minSleepMilliseconds;
 }

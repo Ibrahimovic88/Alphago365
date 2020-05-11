@@ -9,6 +9,7 @@ import com.github.openjson.JSONObject;
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -43,7 +44,8 @@ public class MatchParser extends ListParser<Match> {
 
         Match match = new Match();
         match.setId(item.getLong("MatchID"));
-        match.setDate(DateUtils.parse(item.getString("BetDate"), "yyyy-MM-dd"));
+        LocalDate localDate = DateUtils.parse(item.getString("BetDate"), "yyyy-MM-dd");
+        match.setDate(DateUtils.asInstant(localDate));
         match.setSerialNumber(item.getInt("MatchOrder"));
         match.setLeague(item.getString("LeagueName"));
         match.setHome(item.getString("HomeName"));

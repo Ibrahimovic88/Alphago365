@@ -21,7 +21,7 @@ public class Match extends DateAudit {
     @Id
     private Long id;
 
-    private LocalDate date;
+    private Instant date;
 
     private Integer serialNumber;
 

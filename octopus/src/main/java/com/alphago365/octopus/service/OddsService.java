@@ -24,15 +24,18 @@ import java.util.stream.Collectors;
 public class OddsService {
 
     @Autowired
-    private OddsRepository oddsRepository;
+    private MatchService matchService;
 
+    @Autowired
+    private ProviderService providerService;
+
+    @Autowired
+    private OddsRepository oddsRepository;
     @Autowired
     private OddsChangeRepository oddsChangeRepository;
 
-    @Autowired
-    private ProviderRepository providerRepository;
-
-    public List<Odds> findByMatch(Match match) {
+    public List<Odds> findByMatchId(Long matchId) {
+        Match match = matchService.findById(matchId);
         List<Odds> oddsList = oddsRepository.findByMatch(match);
         oddsList.forEach(OddsService::sortChangeHistories);
         return oddsList
@@ -45,7 +48,9 @@ public class OddsService {
         odds.getChangeHistories().sort(Comparator.comparing(OddsChange::getUpdateTime).reversed());
     }
 
-    public Odds findByMatchAndProvider(Match match, Provider provider) {
+    public Odds findByMatchIdAndProviderId(Long matchId, int providerId) {
+        Match match = matchService.findById(matchId);
+        Provider provider = providerService.findById(providerId);
         Odds odds = oddsRepository.findByMatchAndProvider(match, provider)
                 .<ResourceNotFoundException>orElseThrow(() -> {
                     throw new ResourceNotFoundException("Odds not found by match and provider");
@@ -58,17 +63,20 @@ public class OddsService {
     public List<Odds> saveAll(@NotNull List<Odds> oddsList) {
         List<Odds> savedList = new ArrayList<>();
         oddsList.forEach(odds -> {
-            odds.setProvider(saveProviderIfNotExists(odds));
+            Provider tempProvider = odds.getProvider();
+            Provider savedProvider = saveProviderIfNotExists(tempProvider);
+            odds.setProvider(savedProvider);
             savedList.add(oddsRepository.save(odds));
         });
         return savedList;
     }
 
-    private Provider saveProviderIfNotExists(Odds odds) {
-        Provider tempProvider = odds.getProvider();
-        return providerRepository
-                .findById(tempProvider.getId())
-                .orElse(providerRepository.save(tempProvider));
+    private Provider saveProviderIfNotExists(Provider tempProvider) {
+        Integer id = tempProvider.getId();
+        if (providerService.existsById(id)) {
+            return providerService.findById(id);
+        }
+        return providerService.save(tempProvider);
     }
 
     @Transactional

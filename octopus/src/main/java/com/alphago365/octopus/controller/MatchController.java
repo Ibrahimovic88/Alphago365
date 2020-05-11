@@ -10,6 +10,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -48,10 +49,11 @@ public class MatchController {
 
     @ApiOperation(value = "match created", tags = {"match"})
     @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "Successfully create match", response = AppResponse.class)
+            @ApiResponse(code = 201, message = "Successfully create match", response = AppResponse.class),
+            @ApiResponse(code = 403, message = "Only admin can create match")
     })
     @PostMapping
-//    @PreAuthorize("hasRole('ADMIN')") TODO
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> add(@Valid @RequestBody Match match) {
         matchService.save(match);
         return ResponseEntity.ok(new AppResponse(true, "Successfully create match"));

@@ -1,5 +1,6 @@
 package com.alphago365.octopus.config;
 
+import com.alphago365.octopus.util.DateUtils;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -11,7 +12,7 @@ import java.util.List;
 @Data
 public class DownloadConfig {
 
-    private String matchDate = LocalDate.now().minusDays(1).toString(); // default;
+    private String matchDate = DateUtils.format(LocalDate.now().minusDays(1), "yyyy-MM-dd"); // default
 
     // match url
     private String matchUrl;

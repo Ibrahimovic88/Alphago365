@@ -8,8 +8,20 @@ import java.util.Locale;
 
 public class DateUtils {
 
+    public static String format(LocalDate date, String pattern) {
+        return date.format(DateTimeFormatter.ofPattern(pattern));
+    }
+
+    public static String format(Instant instant, String pattern) {
+        return instant.atZone(ZoneId.systemDefault()).toLocalDate().format(DateTimeFormatter.ofPattern(pattern));
+    }
+
     public static Date asDate(LocalDate localDate) {
         return Date.from(localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+    }
+
+    public static Instant asInstant(LocalDate localDate) {
+        return localDate.atStartOfDay(ZoneId.systemDefault()).toInstant();
     }
 
     public static Instant asInstant(LocalDateTime localDateTime) {
