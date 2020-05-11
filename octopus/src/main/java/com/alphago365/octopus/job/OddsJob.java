@@ -14,6 +14,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 
 @Scope("prototype")
 @Component
@@ -32,9 +34,10 @@ public class OddsJob extends MatchRelatedJob {
 
     @Override
     public void runJob() {
+        AtomicLong sum = new AtomicLong(0);
         save(parse(download())).forEach(odds -> {
-            OddsChangeJob oddsChangeJob = applicationContext.getBean(OddsChangeJob.class,
-                    downloadConfig.getDelay(), odds);
+            sum.getAndAdd(downloadConfig.getOddsChangeDelay());
+            OddsChangeJob oddsChangeJob = applicationContext.getBean(OddsChangeJob.class, sum.get(), odds);
             priorityJobScheduler.scheduleJob(oddsChangeJob);
         });
     }

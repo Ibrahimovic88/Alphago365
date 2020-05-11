@@ -28,7 +28,16 @@ public class DownloadConfig {
     private String overunderUrl;
     private String overunderChangeUrl;
 
-    private long delay;
+    private long matchDelay;
+
+    private long oddsDelay;
+    private long oddsChangeDelay;
+
+    private long handicapDelay;
+    private long handicapChangeDelay;
+
+    private long overunderDelay;
+    private long overunderChangeDelay;
 
     @NotNull
     private List<Integer> oddsProviderIds;

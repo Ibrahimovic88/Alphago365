@@ -32,7 +32,7 @@ public class ScheduledTasks {
     @Scheduled(cron = "${scheduled.cron.downloadMatch}")
     private void downloadMatch() {
         MatchJob matchJob = applicationContext.getBean(MatchJob.class,
-                downloadConfig.getDelay(), downloadConfig.getMatchDate());
+                downloadConfig.getMatchDelay(), downloadConfig.getMatchDate());
         priorityJobScheduler.scheduleJob(matchJob);
     }
 
@@ -43,17 +43,17 @@ public class ScheduledTasks {
 
             // odds
             OddsJob oddsJob = applicationContext.getBean(OddsJob.class,
-                    downloadConfig.getDelay(), match);
+                    downloadConfig.getOddsDelay(), match);
             priorityJobScheduler.scheduleJob(oddsJob);
 
             // handicap
             HandicapJob handicapJob = applicationContext.getBean(HandicapJob.class,
-                    downloadConfig.getDelay(), match);
+                    downloadConfig.getHandicapDelay(), match);
             priorityJobScheduler.scheduleJob(handicapJob);
 
             // overunder
             OverunderJob overunderJob = applicationContext.getBean(OverunderJob.class,
-                    downloadConfig.getDelay(), match);
+                    downloadConfig.getOverunderDelay(), match);
             priorityJobScheduler.scheduleJob(overunderJob);
         });
     }

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 @Scope("prototype")
 @Component
@@ -32,8 +33,10 @@ public class HandicapJob extends MatchRelatedJob {
 
     @Override
     public void runJob() {
+        AtomicLong sum = new AtomicLong(0);
         save(parse(download())).forEach(handicap -> {
-            HandicapChangeJob handicapChangeJob = applicationContext.getBean(HandicapChangeJob.class, downloadConfig.getDelay(), handicap);
+            sum.getAndAdd(downloadConfig.getHandicapChangeDelay());
+            HandicapChangeJob handicapChangeJob = applicationContext.getBean(HandicapChangeJob.class, sum.get(), handicap);
             priorityJobScheduler.scheduleJob(handicapChangeJob);
         });
     }

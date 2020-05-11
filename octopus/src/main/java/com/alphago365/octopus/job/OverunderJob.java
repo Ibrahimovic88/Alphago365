@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 @Scope("prototype")
 @Component
@@ -32,8 +33,10 @@ public class OverunderJob extends MatchRelatedJob {
 
     @Override
     public void runJob() {
-        save(parse(download())).forEach(handicap -> {
-            OverunderChangeJob overunderChangeJob = applicationContext.getBean(OverunderChangeJob.class, downloadConfig.getDelay(), handicap);
+        AtomicLong sum = new AtomicLong(0);
+        save(parse(download())).forEach(overunder -> {
+            sum.getAndAdd(downloadConfig.getOverunderChangeDelay());
+            OverunderChangeJob overunderChangeJob = applicationContext.getBean(OverunderChangeJob.class, sum.get(), overunder);
             priorityJobScheduler.scheduleJob(overunderChangeJob);
         });
     }

@@ -48,7 +48,7 @@ public class OverunderController {
 
     @ApiOperation(value = "get overunder by match id and provider id", tags = {"overunder"})
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successfully get odds", response = Overunder.class)
+            @ApiResponse(code = 200, message = "Successfully get overunder", response = Overunder.class)
     })
     @GetMapping(value = "/matches/{match-id}/overunder/{provider-id}")
     public Overunder getByMatchIdAndProviderId(@PathVariable(name = "match-id") long matchId,

@@ -48,7 +48,7 @@ public class HandicapController {
 
     @ApiOperation(value = "get handicap by match id and provider id", tags = {"handicap"})
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Successfully get odds", response = Handicap.class)
+            @ApiResponse(code = 200, message = "Successfully get handicap", response = Handicap.class)
     })
     @GetMapping(value = "/matches/{match-id}/handicap/{provider-id}")
     public Handicap getByMatchIdAndProviderId(@PathVariable(name = "match-id") long matchId,
