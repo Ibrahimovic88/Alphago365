@@ -37,12 +37,17 @@ job:
 download:
   matchDate: '2020-05-07'
   delay: 5000 #5s
+
   matchUrl: 'https://as.okooo.com/I/?method=mc.data.schedule.getOkoooSchedule&LotteryType=SportterySoccerMix&LotteryNo=DATE_PLACEHOLDER'
+
   oddsUrl: 'https://as.okooo.com/I/?method=mc.data.odds.getOdds&SportId=1&MatchID=MATCH_ID_PLACEHOLDER'
   oddsChangeUrl: 'https://as.okooo.com/I/?method=mc.data.stat.getstat&SportId=1&MatchID=MATCH_ID_PLACEHOLDER&LId=PROVIDER_ID_PLACEHOLDER&bettingTypeId=1'
 
-  handicapUrl: 'https://as.okooo.com/I/?method=mc.data.ah.getAh&SportId=1&MatchID=MATCH_ID_PLACEHOLDER'
+  handicapUrl: 'https://as.okooo.com/I/?method=mc.data.ah.getAh&SportId=1&MatchID=MATCH_ID_PLACEHOLDER&betting_type_id=2'
   handicapChangeUrl: 'https://as.okooo.com/I/?method=mc.data.stat.getstat&SportId=1&MatchID=MATCH_ID_PLACEHOLDER&LId=PROVIDER_ID_PLACEHOLDER&bettingTypeId=2'
+
+  overunderUrl: 'https://as.okooo.com/I/?method=mc.data.ah.getAh&SportId=1&MatchID=MATCH_ID_PLACEHOLDER&betting_type_id=3'
+  overunderChangeUrl: 'https://as.okooo.com/I/?method=mc.data.stat.getstat&SportId=1&MatchID=MATCH_ID_PLACEHOLDER&LId=PROVIDER_ID_PLACEHOLDER&bettingTypeId=3'
 
   oddsProviderIds:
     - 24 # 99Avg

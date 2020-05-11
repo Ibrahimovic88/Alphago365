@@ -18,7 +18,6 @@ public class MatchService {
     @Autowired
     private MatchRepository matchRepository;
 
-    @Transactional
     public List<Match> getMatchListOfLatestDays(int latestDays) {
         LocalDate today = LocalDate.now();
         LocalDate start = today.minusDays(latestDays);

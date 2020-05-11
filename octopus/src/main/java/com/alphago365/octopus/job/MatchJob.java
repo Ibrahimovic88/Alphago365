@@ -29,7 +29,7 @@ public class MatchJob extends DownloadJob {
     private final String matchDate;
 
     public MatchJob(long delay, String date) {
-        super("MJ", delay);
+        super(String.format("M-Job-%s", date), delay);
         this.matchDate = date;
     }
 

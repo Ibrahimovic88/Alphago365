@@ -27,7 +27,7 @@ public class OddsJob extends MatchRelatedJob {
     PriorityJobScheduler priorityJobScheduler;
 
     public OddsJob(long delay, Match match) {
-        super("OJ", delay, match);
+        super(String.format("O-%d", match.getId()), delay, match);
     }
 
     @Override

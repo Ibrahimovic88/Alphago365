@@ -4,7 +4,7 @@ import com.alphago365.octopus.exception.ParseException;
 import com.alphago365.octopus.model.Match;
 import com.alphago365.octopus.model.Odds;
 import com.alphago365.octopus.model.Provider;
-import org.json.JSONObject;
+import com.github.openjson.JSONObject;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 

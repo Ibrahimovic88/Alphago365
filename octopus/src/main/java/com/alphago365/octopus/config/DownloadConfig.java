@@ -13,12 +13,20 @@ public class DownloadConfig {
 
     private String matchDate = LocalDate.now().minusDays(1).toString(); // default;
 
-    // urls
+    // match url
     private String matchUrl;
+
+    // odds related url
     private String oddsUrl;
     private String oddsChangeUrl;
+
+    // handicap related url
     private String handicapUrl;
     private String handicapChangeUrl;
+
+    // overunder related url
+    private String overunderUrl;
+    private String overunderChangeUrl;
 
     private long delay;
 

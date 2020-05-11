@@ -3,10 +3,10 @@ package com.alphago365.octopus.job;
 
 import com.alphago365.octopus.PriorityJobScheduler;
 import com.alphago365.octopus.exception.ParseException;
-import com.alphago365.octopus.model.Handicap;
 import com.alphago365.octopus.model.Match;
-import com.alphago365.octopus.parser.HandicapParser;
-import com.alphago365.octopus.service.HandicapService;
+import com.alphago365.octopus.model.Overunder;
+import com.alphago365.octopus.parser.OverunderParser;
+import com.alphago365.octopus.service.OverunderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -18,34 +18,34 @@ import java.util.List;
 @Scope("prototype")
 @Component
 @Slf4j
-public class HandicapJob extends MatchRelatedJob {
+public class OverunderJob extends MatchRelatedJob {
 
     @Autowired
-    private HandicapService handicapService;
+    private OverunderService overunderService;
 
     @Autowired
     private PriorityJobScheduler priorityJobScheduler;
 
-    public HandicapJob(long delay, Match match) {
-        super(String.format("H-%d", match.getId()), delay, match);
+    public OverunderJob(long delay, Match match) {
+        super(String.format("OV-%d", match.getId()), delay, match);
     }
 
     @Override
     public void runJob() {
         save(parse(download())).forEach(handicap -> {
-            HandicapChangeJob handicapChangeJob = applicationContext.getBean(HandicapChangeJob.class, downloadConfig.getDelay(), handicap);
-            priorityJobScheduler.scheduleJob(handicapChangeJob);
+            OverunderChangeJob overunderChangeJob = applicationContext.getBean(OverunderChangeJob.class, downloadConfig.getDelay(), handicap);
+            priorityJobScheduler.scheduleJob(overunderChangeJob);
         });
     }
 
-    private List<Handicap> save(List<Handicap> handicapList) {
-        return handicapService.saveAll(handicapList);
+    private List<Overunder> save(List<Overunder> overunderList) {
+        return overunderService.saveAll(overunderList);
     }
 
-    private List<Handicap> parse(String json) {
+    private List<Overunder> parse(String json) {
         try {
-            HandicapParser oddsParser = applicationContext.getBean(HandicapParser.class, match);
-            return oddsParser.parseResponse(json);
+            OverunderParser overunderParser = applicationContext.getBean(OverunderParser.class, match);
+            return overunderParser.parseResponse(json);
         } catch (ParseException e) {
             log.error("Download odds error", e);
         }
@@ -53,7 +53,7 @@ public class HandicapJob extends MatchRelatedJob {
     }
 
     private String download() {
-        String url = downloadConfig.getHandicapUrl()
+        String url = downloadConfig.getOverunderUrl()
                 .replaceFirst("MATCH_ID_PLACEHOLDER", String.valueOf(match.getId()));
         return restService.getJson(url);
     }

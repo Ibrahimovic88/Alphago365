@@ -23,7 +23,7 @@ public class OddsChangeJob extends OddsRelatedJob {
     private OddsService oddsService;
 
     public OddsChangeJob(long delay, Odds odds) {
-        super("OCJ", delay, odds);
+        super(String.format("OC-%d-%d", odds.getMatch().getId(), odds.getProvider().getId()), delay, odds);
     }
 
     @Override
@@ -31,8 +31,8 @@ public class OddsChangeJob extends OddsRelatedJob {
         save(parse(download()));
     }
 
-    private List<OddsChange> save(List<OddsChange> handicapChangeList) {
-        return oddsService.saveAllChanges(handicapChangeList);
+    private List<OddsChange> save(List<OddsChange> oddsChangeList) {
+        return oddsService.saveAllChanges(oddsChangeList);
     }
 
     private List<OddsChange> parse(String json) {

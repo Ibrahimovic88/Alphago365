@@ -61,9 +61,9 @@ public class SwaggerConfig {
                 .title("Octopus REST API")
                 .description("Octopus REST API based on Spring boot")
                 .version("1.0.0")
-                .license("Apache License Version 2.0")
-                .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0\"")
-                .contact(new Contact("Dylan", "https://www.alphago365.com", "thinking4java@gmail.com"))
+                .license("The MIT License (MIT)")
+                .licenseUrl("https://mit-license.org")
+                .contact(new Contact("Alphago365", "https://www.alphago365.com", "thinking4java@gmail.com"))
                 .build();
     }
 

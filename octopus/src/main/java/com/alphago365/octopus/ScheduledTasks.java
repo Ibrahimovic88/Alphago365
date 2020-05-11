@@ -4,6 +4,7 @@ import com.alphago365.octopus.config.DownloadConfig;
 import com.alphago365.octopus.job.HandicapJob;
 import com.alphago365.octopus.job.MatchJob;
 import com.alphago365.octopus.job.OddsJob;
+import com.alphago365.octopus.job.OverunderJob;
 import com.alphago365.octopus.model.Match;
 import com.alphago365.octopus.service.MatchService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,11 @@ public class ScheduledTasks {
             HandicapJob handicapJob = applicationContext.getBean(HandicapJob.class,
                     downloadConfig.getDelay(), match);
             priorityJobScheduler.scheduleJob(handicapJob);
+
+            // overunder
+            OverunderJob overunderJob = applicationContext.getBean(OverunderJob.class,
+                    downloadConfig.getDelay(), match);
+            priorityJobScheduler.scheduleJob(overunderJob);
         });
     }
 }

@@ -5,7 +5,7 @@ import com.alphago365.octopus.model.CompositeChangeId;
 import com.alphago365.octopus.model.Handicap;
 import com.alphago365.octopus.model.HandicapChange;
 import com.alphago365.octopus.util.DateUtils;
-import org.json.JSONObject;
+import com.github.openjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;

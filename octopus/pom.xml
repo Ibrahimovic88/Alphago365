@@ -72,10 +72,17 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.json/json -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>${org.json.version}</version>
+        </dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/com.github.openjson/openjson -->
+        <dependency>
+            <groupId>com.github.openjson</groupId>
+            <artifactId>openjson</artifactId>
+            <version>1.0.12</version>
         </dependency>
 
         <!-- swagger -->

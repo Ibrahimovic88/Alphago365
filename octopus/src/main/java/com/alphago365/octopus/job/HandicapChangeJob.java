@@ -23,7 +23,7 @@ public class HandicapChangeJob extends HandicapRelatedJob {
     private HandicapService handicapService;
 
     public HandicapChangeJob(long delay, Handicap handicap) {
-        super("HCJ", delay, handicap);
+        super(String.format("HC-%d-%d", handicap.getMatch().getId(), handicap.getProvider().getId()), delay, handicap);
     }
 
     @Override
@@ -31,8 +31,8 @@ public class HandicapChangeJob extends HandicapRelatedJob {
         save(parse(download()));
     }
 
-    private void save(List<HandicapChange> handicapChangeList) {
-        handicapService.saveAllChanges(handicapChangeList);
+    private List<HandicapChange> save(List<HandicapChange> handicapChangeList) {
+        return handicapService.saveAllChanges(handicapChangeList);
     }
 
     private List<HandicapChange> parse(String json) {

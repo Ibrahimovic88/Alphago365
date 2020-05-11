@@ -4,8 +4,8 @@ import com.alphago365.octopus.exception.JsonParseException;
 import com.alphago365.octopus.exception.ParseException;
 import com.alphago365.octopus.model.Match;
 import com.alphago365.octopus.util.DateUtils;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.github.openjson.JSONArray;
+import com.github.openjson.JSONObject;
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotNull;
