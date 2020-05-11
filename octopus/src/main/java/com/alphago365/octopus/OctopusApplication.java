@@ -3,9 +3,11 @@ package com.alphago365.octopus;
 import com.alphago365.octopus.config.DownloadConfig;
 import com.alphago365.octopus.config.JobConfig;
 import com.alphago365.octopus.config.JwtConfig;
+import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
@@ -14,13 +16,25 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 public class OctopusApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(OctopusApplication.class, args);
-	}
+    private static ConfigurableApplicationContext context;
 
-	@Bean
-	public CustomRestTemplateCustomizer customRestTemplateCustomizer() {
-		return new CustomRestTemplateCustomizer();
-	}
+    public static void main(String[] args) {
+        context = SpringApplication.run(OctopusApplication.class, args);
+    }
+
+    public static void restart() {
+        ApplicationArguments args = context.getBean(ApplicationArguments.class);
+        Thread thread = new Thread(() -> {
+            context.close();
+            context = SpringApplication.run(OctopusApplication.class, args.getSourceArgs());
+        });
+        thread.setDaemon(false);
+        thread.start();
+    }
+
+    @Bean
+    public CustomRestTemplateCustomizer customRestTemplateCustomizer() {
+        return new CustomRestTemplateCustomizer();
+    }
 
 }
