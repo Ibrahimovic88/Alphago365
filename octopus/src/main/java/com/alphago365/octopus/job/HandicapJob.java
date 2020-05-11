@@ -1,6 +1,7 @@
 package com.alphago365.octopus.job;
 
 
+import com.alphago365.octopus.PriorityJobScheduler;
 import com.alphago365.octopus.exception.ParseException;
 import com.alphago365.octopus.model.Handicap;
 import com.alphago365.octopus.model.Match;
@@ -22,17 +23,23 @@ public class HandicapJob extends MatchRelatedJob {
     @Autowired
     private HandicapService handicapService;
 
+    @Autowired
+    private PriorityJobScheduler priorityJobScheduler;
+
     public HandicapJob(long delay, Match match) {
         super("HJ", delay, match);
     }
 
     @Override
     public void runJob() {
-        save(parse(download()));
+        save(parse(download())).forEach(handicap -> {
+            HandicapChangeJob handicapChangeJob = applicationContext.getBean(HandicapChangeJob.class, downloadConfig.getDelay(), handicap);
+            priorityJobScheduler.scheduleJob(handicapChangeJob);
+        });
     }
 
-    private void save(List<Handicap> oddsList) {
-        handicapService.saveAll(oddsList);
+    private List<Handicap> save(List<Handicap> oddsList) {
+        return handicapService.saveAll(oddsList);
     }
 
     private List<Handicap> parse(String json) {
@@ -46,7 +53,8 @@ public class HandicapJob extends MatchRelatedJob {
     }
 
     private String download() {
-        String url = downloadConfig.getHandicapUrl() + match.getId();
+        String url = downloadConfig.getHandicapUrl()
+                .replaceFirst("MATCH_ID_PLACEHOLDER", String.valueOf(match.getId()));
         return restService.getJson(url);
     }
 }

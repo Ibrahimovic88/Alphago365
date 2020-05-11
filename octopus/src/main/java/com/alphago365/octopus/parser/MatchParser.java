@@ -9,9 +9,7 @@ import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -50,8 +48,8 @@ public class MatchParser extends ListParser<Match> {
         match.setLeague(item.getString("LeagueName"));
         match.setHome(item.getString("HomeName"));
         match.setAway(item.getString("AwayName"));
-        LocalDateTime localDateTime = DateUtils.parse(item.getString("MatchTime"), "yyyy-MM-dd HH:mm:ss", Locale.CHINA);
-        match.setKickoffTime(localDateTime.toInstant(ZoneOffset.UTC));
+        LocalDateTime localDateTime = DateUtils.parse(item.getString("MatchTime"), "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        match.setKickoffTime(DateUtils.asInstant(localDateTime));
 
         return match;
     }

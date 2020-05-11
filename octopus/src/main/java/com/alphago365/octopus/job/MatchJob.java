@@ -52,7 +52,7 @@ public class MatchJob extends DownloadJob {
     }
 
     private String download() {
-        String url = downloadConfig.getMatchUrl() + matchDate;
+        String url = downloadConfig.getMatchUrl().replace("DATE_PLACEHOLDER", matchDate);
         return restService.getJson(url);
     }
 }

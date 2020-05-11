@@ -1,12 +1,12 @@
 package com.alphago365.octopus.job;
 
 
+import com.alphago365.octopus.PriorityJobScheduler;
 import com.alphago365.octopus.exception.ParseException;
 import com.alphago365.octopus.model.Match;
 import com.alphago365.octopus.model.Odds;
 import com.alphago365.octopus.parser.OddsParser;
 import com.alphago365.octopus.service.OddsService;
-import com.alphago365.octopus.service.ProviderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -23,17 +23,24 @@ public class OddsJob extends MatchRelatedJob {
     @Autowired
     private OddsService oddsService;
 
+    @Autowired
+    PriorityJobScheduler priorityJobScheduler;
+
     public OddsJob(long delay, Match match) {
         super("OJ", delay, match);
     }
 
     @Override
     public void runJob() {
-        save(parse(download()));
+        save(parse(download())).forEach(odds -> {
+            OddsChangeJob oddsChangeJob = applicationContext.getBean(OddsChangeJob.class,
+                    downloadConfig.getDelay(), odds);
+            priorityJobScheduler.scheduleJob(oddsChangeJob);
+        });
     }
 
-    private void save(List<Odds> oddsList) {
-        oddsService.saveAll(oddsList);
+    private List<Odds> save(List<Odds> oddsList) {
+        return oddsService.saveAll(oddsList);
     }
 
     private List<Odds> parse(String json) {
@@ -47,7 +54,8 @@ public class OddsJob extends MatchRelatedJob {
     }
 
     private String download() {
-        String url = downloadConfig.getOddsUrl() + match.getId();
+        String url = downloadConfig.getOddsUrl()
+                .replaceFirst("MATCH_ID_PLACEHOLDER", String.valueOf(match.getId()));
         return restService.getJson(url);
     }
 }

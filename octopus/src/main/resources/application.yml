@@ -20,7 +20,7 @@ spring:
       INDENT_OUTPUT: true
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: create-drop # change to `update` in production
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
@@ -37,9 +37,12 @@ job:
 download:
   matchDate: '2020-05-07'
   delay: 5000 #5s
-  matchUrl: 'https://as.okooo.com/I/?method=mc.data.schedule.getOkoooSchedule&LotteryType=SportterySoccerMix&LotteryNo='
-  oddsUrl: 'https://as.okooo.com/I/?method=mc.data.odds.getOdds&SportId=1&MatchID='
-  handicapUrl: 'https://as.okooo.com/I/?method=mc.data.ah.getAh&SportId=1&MatchID='
+  matchUrl: 'https://as.okooo.com/I/?method=mc.data.schedule.getOkoooSchedule&LotteryType=SportterySoccerMix&LotteryNo=DATE_PLACEHOLDER'
+  oddsUrl: 'https://as.okooo.com/I/?method=mc.data.odds.getOdds&SportId=1&MatchID=MATCH_ID_PLACEHOLDER'
+  oddsChangeUrl: 'https://as.okooo.com/I/?method=mc.data.stat.getstat&SportId=1&MatchID=MATCH_ID_PLACEHOLDER&LId=PROVIDER_ID_PLACEHOLDER&bettingTypeId=1'
+
+  handicapUrl: 'https://as.okooo.com/I/?method=mc.data.ah.getAh&SportId=1&MatchID=MATCH_ID_PLACEHOLDER'
+  handicapChangeUrl: 'https://as.okooo.com/I/?method=mc.data.stat.getstat&SportId=1&MatchID=MATCH_ID_PLACEHOLDER&LId=PROVIDER_ID_PLACEHOLDER&bettingTypeId=2'
 
   oddsProviderIds:
     - 24 # 99Avg

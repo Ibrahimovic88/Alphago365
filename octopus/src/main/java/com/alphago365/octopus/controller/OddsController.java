@@ -16,9 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @Api(tags = "odds")
@@ -40,10 +38,7 @@ public class OddsController {
     @GetMapping(value = "/matches/{match-id}/odds")
     public List<Odds> getOddsListByMatchId(@PathVariable(name = "match-id") long matchId) {
         Match match = matchService.findById(matchId);
-        return oddsService.findByMatch(match)
-                .parallelStream()
-                .sorted(Comparator.comparing(Odds::getDisplayOrder))
-                .collect(Collectors.toList());
+        return oddsService.findByMatch(match);
     }
 
     @ApiOperation(value = "get odds by match id and provider id", tags = {"odds"})
@@ -52,7 +47,7 @@ public class OddsController {
     })
     @GetMapping(value = "/matches/{match-id}/odds/{provider-id}")
     public Odds getByMatchIdAndProviderId(@PathVariable(name = "match-id") long matchId,
-                                              @PathVariable(name = "provider-id") int providerId) {
+                                          @PathVariable(name = "provider-id") int providerId) {
         Match match = matchService.findById(matchId);
         Provider provider = providerService.findById(providerId);
         return oddsService.findByMatchAndProvider(match, provider);
