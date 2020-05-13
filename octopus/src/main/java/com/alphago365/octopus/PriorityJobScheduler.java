@@ -82,7 +82,7 @@ public class PriorityJobScheduler {
         priorityJobPoolExecutor.shutdown();
     }
 
-    public class DumpJobCacheJob extends Job {
+    private class DumpJobCacheJob extends Job {
 
         private final Job current;
 
@@ -97,7 +97,7 @@ public class PriorityJobScheduler {
             StringBuilder builder = new StringBuilder("\n");
             jobCacheCopy.stream().sorted(Comparator.naturalOrder()).forEach(job -> {
                 String jobName = job.getJobName();
-                builder.append(String.format("%-14s",jobName))
+                builder.append(String.format("%-13s",jobName))
                         .append(", ")
                         .append(String.format("%5d", job.getDelay(TimeUnit.MILLISECONDS)));
                 if (jobName.equals(current.getJobName())) {
