@@ -40,7 +40,7 @@ public class HandicapChangeParser extends MatchRelatedParser<HandicapChange> {
         Map<CompositeChangeId, HandicapChange> map = new TreeMap<>(Comparator.comparing(CompositeChangeId::getUpdateTime));
 
         JSONObject info = root.getJSONObject("info");
-        LocalDateTime kickoffTime = DateUtils.parse(info.getString("MatchTime"), "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        LocalDateTime kickoffTime = DateUtils.parseToDateTime(info.getString("MatchTime"), "yyyy-MM-dd HH:mm:ss");
         info.getJSONArray("changeOdds").forEach(item -> {
             HandicapChange change = parseChangeOddsItem((JSONObject) item);
             change.setKickoffTime(DateUtils.asInstant(kickoffTime));
@@ -59,7 +59,7 @@ public class HandicapChangeParser extends MatchRelatedParser<HandicapChange> {
         change.setBoundary(jsonObject.getDouble("boundary"));
         Long matchId = handicap.getMatch().getId();
         int providerId = handicap.getProvider().getId();
-        LocalDateTime localDateTime = DateUtils.parse(jsonObject.getString("update_time"), "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        LocalDateTime localDateTime = DateUtils.parseToDateTime(jsonObject.getString("update_time"), "yyyy-MM-dd HH:mm:ss");
         Instant updateTime = DateUtils.asInstant(localDateTime);
         change.setCompositeChangeId(new CompositeChangeId(matchId, providerId, updateTime));
 

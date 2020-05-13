@@ -36,7 +36,7 @@ public class OverunderChangeParser extends MatchRelatedParser<OverunderChange> {
         Map<CompositeChangeId, OverunderChange> map = new TreeMap<>(Comparator.comparing(CompositeChangeId::getUpdateTime));
 
         JSONObject info = root.getJSONObject("info");
-        LocalDateTime localDateTime = DateUtils.parse(info.getString("MatchTime"), "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        LocalDateTime localDateTime = DateUtils.parseToDateTime(info.getString("MatchTime"), "yyyy-MM-dd HH:mm:ss");
         Instant kickoffTime = DateUtils.asInstant(localDateTime);
         info.getJSONArray("changeOdds").forEach(item -> {
             OverunderChange change = parseChangeOddsItem((JSONObject) item);
@@ -54,7 +54,7 @@ public class OverunderChangeParser extends MatchRelatedParser<OverunderChange> {
         change.setOver(odds.getDouble("over"));
         change.setUnder(odds.getDouble("under"));
         change.setBoundary(jsonObject.getDouble("boundary"));
-        LocalDateTime localDateTime = DateUtils.parse(jsonObject.getString("update_time"), "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        LocalDateTime localDateTime = DateUtils.parseToDateTime(jsonObject.getString("update_time"), "yyyy-MM-dd HH:mm:ss");
         Instant updateTime = DateUtils.asInstant(localDateTime);
         change.setCompositeChangeId(new CompositeChangeId(overunder.getMatch().getId(), overunder.getProvider().getId(), updateTime));
 

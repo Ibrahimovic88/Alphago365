@@ -36,7 +36,7 @@ public class OddsChangeParser extends MatchRelatedParser<OddsChange> {
         Map<CompositeChangeId, OddsChange> map = new TreeMap<>(Comparator.comparing(CompositeChangeId::getUpdateTime));
 
         JSONObject info = root.getJSONObject("info");
-        LocalDateTime kickoffTime = DateUtils.parse(info.getString("MatchTime"), "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        LocalDateTime kickoffTime = DateUtils.parseToDateTime(info.getString("MatchTime"), "yyyy-MM-dd HH:mm:ss");
         info.getJSONArray("changeOdds").forEach(item -> {
             OddsChange change = parseChangeOddsItem((JSONObject) item);
             change.setKickoffTime(DateUtils.asInstant(kickoffTime));
@@ -53,7 +53,7 @@ public class OddsChangeParser extends MatchRelatedParser<OddsChange> {
         change.setHome(odds.getDouble("home"));
         change.setDraw(odds.getDouble("draw"));
         change.setAway(odds.getDouble("away"));
-        LocalDateTime localDateTime = DateUtils.parse(jsonObject.getString("update_time"), "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        LocalDateTime localDateTime = DateUtils.parseToDateTime(jsonObject.getString("update_time"), "yyyy-MM-dd HH:mm:ss");
         Instant updateTime = DateUtils.asInstant(localDateTime);
         change.setCompositeChangeId(new CompositeChangeId(this.odds.getMatch().getId(), this.odds.getProvider().getId(), updateTime));
 

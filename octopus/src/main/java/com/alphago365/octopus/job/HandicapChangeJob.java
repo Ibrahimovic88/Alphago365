@@ -1,6 +1,7 @@
 package com.alphago365.octopus.job;
 
 
+import com.alphago365.octopus.PriorityJobScheduler;
 import com.alphago365.octopus.exception.ParseException;
 import com.alphago365.octopus.model.Handicap;
 import com.alphago365.octopus.model.HandicapChange;
@@ -21,6 +22,9 @@ public class HandicapChangeJob extends HandicapRelatedJob {
 
     @Autowired
     private HandicapService handicapService;
+
+    @Autowired
+    private PriorityJobScheduler priorityJobScheduler;
 
     public HandicapChangeJob(long delay, Handicap handicap) {
         super(String.format("HC-%d-%d", handicap.getMatch().getId(), handicap.getProvider().getId()), delay, handicap);

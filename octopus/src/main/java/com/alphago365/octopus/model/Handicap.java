@@ -5,9 +5,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.springframework.data.domain.Page;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @EqualsAndHashCode(callSuper = false)
 @Entity
@@ -33,6 +35,10 @@ public class Handicap extends DateAudit {
 
     @OneToMany(mappedBy = "handicap", cascade = CascadeType.ALL)
     private List<HandicapChange> changeHistories;
+
+    @OneToMany(mappedBy = "handicap", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private List<HandicapAnalysis> changeAnalyses;
 
     private double ratioHome;
     private double ratioAway;

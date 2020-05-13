@@ -1,10 +1,8 @@
 package com.alphago365.octopus.service;
 
 import com.alphago365.octopus.exception.ResourceNotFoundException;
-import com.alphago365.octopus.model.Handicap;
-import com.alphago365.octopus.model.HandicapChange;
-import com.alphago365.octopus.model.Match;
-import com.alphago365.octopus.model.Provider;
+import com.alphago365.octopus.model.*;
+import com.alphago365.octopus.repository.HandicapAnalysisRepository;
 import com.alphago365.octopus.repository.HandicapChangeRepository;
 import com.alphago365.octopus.repository.HandicapRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -13,9 +11,8 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.time.Instant;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -32,19 +29,17 @@ public class HandicapService {
     private HandicapRepository handicapRepository;
     @Autowired
     private HandicapChangeRepository handicapChangeRepository;
+    @Autowired
+    private HandicapAnalysisRepository handicapAnalysisRepository;
 
     @Transactional
     public List<Handicap> findByMatchId(Long matchId) {
         Match match = matchService.findById(matchId);
         List<Handicap> handicapList = handicapRepository.findByMatch(match);
-        handicapList.forEach(HandicapService::sortChangeHistories);
+        handicapList.forEach(HandicapService::decorateHandicap);
         return handicapList.parallelStream()
                 .sorted(Comparator.comparing(Handicap::getDisplayOrder))
                 .collect(Collectors.toList());
-    }
-
-    private static void sortChangeHistories(Handicap odds) {
-        odds.getChangeHistories().sort(Comparator.comparing(HandicapChange::getUpdateTime).reversed());
     }
 
     @Transactional
@@ -54,8 +49,12 @@ public class HandicapService {
         Handicap handicap = handicapRepository.findByMatchAndProvider(match, provider).<ResourceNotFoundException>orElseThrow(() -> {
             throw new ResourceNotFoundException("Handicap not found by match and provider");
         });
-        sortChangeHistories(handicap);
+        decorateHandicap(handicap);
         return handicap;
+    }
+
+    public List<HandicapChange> findChangesByHandicapId(Handicap handicap) {
+        return handicapChangeRepository.findByHandicap(handicap);
     }
 
     @Transactional
@@ -81,5 +80,35 @@ public class HandicapService {
     @Transactional
     public List<HandicapChange> saveAllChanges(@NotNull List<HandicapChange> handicapChangeList) {
         return handicapChangeRepository.saveAll(handicapChangeList);
+    }
+
+    @Transactional
+    public List<HandicapAnalysis> saveAllAnalyses(@NotNull List<HandicapAnalysis> handicapAnalysisList) {
+        return handicapAnalysisRepository.saveAll(handicapAnalysisList);
+    }
+
+    private static void decorateHandicap(Handicap handicap) {
+        sortChangeHistories(handicap);
+        setLatestChangeAnalyses(handicap);
+    }
+
+
+    private static void sortChangeHistories(Handicap handicap) {
+        handicap.getChangeHistories()
+                .sort(Comparator.comparing(HandicapChange::getUpdateTime).reversed());
+    }
+
+    private static void setLatestChangeAnalyses(Handicap handicap) {
+        Map<Instant, List<HandicapAnalysis>> groupByAnalysisTime = handicap.getChangeAnalyses()
+                .stream()
+                .collect(Collectors.groupingBy(HandicapAnalysis::getAnalysisTime));
+        groupByAnalysisTime.keySet()
+                .stream()
+                .max(Comparator.naturalOrder())
+                .ifPresent(latestAnalysisTime -> {
+                    List<HandicapAnalysis> changeAnalyses = groupByAnalysisTime.get(latestAnalysisTime);
+                    changeAnalyses.sort(Comparator.comparing(HandicapAnalysis::getUpdateTime).reversed());
+                    handicap.setChangeAnalyses(changeAnalyses);
+                });
     }
 }

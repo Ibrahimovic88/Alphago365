@@ -12,7 +12,11 @@ import java.util.List;
 @Data
 public class DownloadConfig {
 
-    private String matchDate = DateUtils.format(LocalDate.now().minusDays(1), "yyyy-MM-dd"); // default
+    // default down yesterday
+    private String matchDate = DateUtils.format(LocalDate.now().minusDays(1), "yyyy-MM-dd");
+
+    // default update latest 1 day match
+    private int latestDays = 1;
 
     // match url
     private String matchUrl;
@@ -28,17 +32,6 @@ public class DownloadConfig {
     // overunder related url
     private String overunderUrl;
     private String overunderChangeUrl;
-
-    private long matchDelay;
-
-    private long oddsDelay;
-    private long oddsChangeDelay;
-
-    private long handicapDelay;
-    private long handicapChangeDelay;
-
-    private long overunderDelay;
-    private long overunderChangeDelay;
 
     @NotNull
     private List<Integer> oddsProviderIds;

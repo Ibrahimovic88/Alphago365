@@ -1,6 +1,7 @@
 package com.alphago365.octopus;
 
 import com.alphago365.octopus.config.DownloadConfig;
+import com.alphago365.octopus.config.HandicapAnalysisConfig;
 import com.alphago365.octopus.config.JobConfig;
 import com.alphago365.octopus.config.JwtConfig;
 import org.springframework.boot.ApplicationArguments;
@@ -12,7 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-@EnableConfigurationProperties({JwtConfig.class, JobConfig.class, DownloadConfig.class})
+@EnableConfigurationProperties({JwtConfig.class, JobConfig.class, DownloadConfig.class, HandicapAnalysisConfig.class})
 @EnableScheduling
 public class OctopusApplication {
 

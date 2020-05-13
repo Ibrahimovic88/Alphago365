@@ -36,9 +36,9 @@ public class OverunderService {
     @Transactional
     public List<Overunder> findByMatchId(Long matchId) {
         Match match = matchService.findById(matchId);
-        List<Overunder> handicapList = overunderRepository.findByMatch(match);
-        handicapList.forEach(OverunderService::sortChangeHistories);
-        return handicapList.parallelStream()
+        List<Overunder> overunderList = overunderRepository.findByMatch(match);
+        overunderList.forEach(OverunderService::sortChangeHistories);
+        return overunderList.parallelStream()
                 .sorted(Comparator.comparing(Overunder::getDisplayOrder))
                 .collect(Collectors.toList());
     }
@@ -52,7 +52,7 @@ public class OverunderService {
         Match match = matchService.findById(matchId);
         Provider provider = providerService.findById(providerId);
         Overunder overunder = overunderRepository.findByMatchAndProvider(match, provider).<ResourceNotFoundException>orElseThrow(() -> {
-            throw new ResourceNotFoundException("Handicap not found by match and provider");
+            throw new ResourceNotFoundException("Overunder not found by match id and provider id");
         });
         sortChangeHistories(overunder);
         return overunder;

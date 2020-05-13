@@ -30,12 +30,12 @@ public class OverunderChange extends DateAudit {
     private double boundary;
     private double under;
 
+    public OverunderChange(Overunder handicap) {
+        this.overunder = handicap;
+    }
+
     @JsonIgnore
     public Instant getUpdateTime() {
         return compositeChangeId.getUpdateTime();
-    }
-
-    public OverunderChange(Overunder handicap) {
-        this.overunder = handicap;
     }
 }

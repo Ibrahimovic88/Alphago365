@@ -35,7 +35,7 @@ public class HandicapJob extends MatchRelatedJob {
     public void runJob() {
         AtomicLong sum = new AtomicLong(0);
         save(parse(download())).forEach(handicap -> {
-            sum.getAndAdd(downloadConfig.getHandicapChangeDelay());
+            sum.getAndAdd(jobConfig.getHandicapChangeJobDelay());
             HandicapChangeJob handicapChangeJob = applicationContext.getBean(HandicapChangeJob.class, sum.get(), handicap);
             priorityJobScheduler.scheduleJob(handicapChangeJob);
         });

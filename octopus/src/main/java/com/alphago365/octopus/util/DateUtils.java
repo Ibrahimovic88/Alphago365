@@ -1,24 +1,13 @@
 package com.alphago365.octopus.util;
 
-import javax.validation.constraints.NotNull;
-import java.time.*;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Locale;
 
 public class DateUtils {
-
-    public static String format(LocalDate date, String pattern) {
-        return date.format(DateTimeFormatter.ofPattern(pattern));
-    }
-
-    public static String format(Instant instant, String pattern) {
-        return instant.atZone(ZoneId.systemDefault()).toLocalDate().format(DateTimeFormatter.ofPattern(pattern));
-    }
-
-    public static Date asDate(LocalDate localDate) {
-        return Date.from(localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
-    }
 
     public static Instant asInstant(LocalDate localDate) {
         return localDate.atStartOfDay(ZoneId.systemDefault()).toInstant();
@@ -28,49 +17,32 @@ public class DateUtils {
         return localDateTime.atZone(ZoneId.systemDefault()).toInstant();
     }
 
-    public static Date asDate(LocalDateTime localDateTime) {
-        return Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+    public static String format(LocalDate date, String pattern) {
+        return date.format(DateTimeFormatter.ofPattern(pattern));
     }
 
-    public static LocalDate asLocalDate(Date date) {
-        return Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
+    public static String format(Instant instant, String pattern) {
+        return instant.atZone(ZoneId.systemDefault()).toLocalDate().format(DateTimeFormatter.ofPattern(pattern));
     }
 
-    public static LocalDate parse(String date, String pattern) {
-        return LocalDate.parse(date, DateTimeFormatter.ofPattern(pattern));
+    public static Instant parseToInstant(String date, String pattern, Locale locale) {
+        return asInstant(parseToDate(date, pattern, locale));
     }
 
-    public static LocalDateTime asLocalDateTime(long milliseconds) {
-        return Instant.ofEpochMilli(milliseconds).atZone(ZoneId.systemDefault()).toLocalDateTime();
+    public static Instant parseToInstant(String date, String pattern) {
+        return parseToInstant(date, pattern, Locale.getDefault());
     }
 
-    public static LocalDateTime asLocalDateTime(Date date) {
-        return asLocalDateTime(date.getTime());
+    public static LocalDate parseToDate(String date, String pattern, Locale locale) {
+        return LocalDate.parse(date, DateTimeFormatter.ofPattern(pattern, locale));
     }
 
-    public static LocalDateTime parse(String str, String pattern, Locale locale) {
+    public static LocalDateTime parseToDateTime(String dateTime, String pattern, Locale locale) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern, locale);
-        return LocalDateTime.parse(str, formatter);
+        return LocalDateTime.parse(dateTime, formatter);
     }
 
-    public static String getPrettyDurationTillNow(@NotNull LocalDateTime dateTime) {
-        LocalDateTime now = LocalDateTime.now();
-        boolean before = dateTime.isBefore(now);
-        Duration duration = Duration.between(dateTime, now);
-        long days = duration.toDays();
-        if (days > 0) {
-            return String.format(before ? "[-%dD]" : "[+%dD]", days);
-        }
-        long hours = duration.toHours();
-        if (hours > 0) {
-            return String.format(before ? "[-%dH]" : "[%dH]", hours);
-        }
-        long minutes = duration.toHours();
-        return String.format(before ? "[-%dMin]" : "[+%dMin]", minutes);
-    }
-
-    public static String getPrettyDurationTillNow(long milliseconds) {
-        LocalDateTime dateTime = asLocalDateTime(milliseconds);
-        return getPrettyDurationTillNow(dateTime);
+    public static LocalDateTime parseToDateTime(String dateTime, String pattern) {
+        return parseToDateTime(dateTime, pattern, Locale.getDefault());
     }
 }

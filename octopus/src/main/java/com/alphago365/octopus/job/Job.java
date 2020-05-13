@@ -1,8 +1,10 @@
 package com.alphago365.octopus.job;
 
+import com.alphago365.octopus.config.JobConfig;
 import com.alphago365.octopus.exception.RunJobException;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.concurrent.Delayed;
 import java.util.concurrent.TimeUnit;
@@ -10,8 +12,12 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 @Data
 public abstract class Job implements Delayed, Runnable {
-    protected final String jobName;
     private long startTime;
+
+    protected final String jobName;
+
+    @Autowired
+    protected JobConfig jobConfig;
 
     public Job(String jobName, long delay) {
         this.jobName = jobName;

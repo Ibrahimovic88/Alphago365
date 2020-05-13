@@ -25,7 +25,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         enable_lazy_load_no_trans: true
-    show-sql: true
+    show-sql: false
 
 jwt:
   secret: octopus
@@ -37,12 +37,14 @@ job:
 
 download:
   matchDate: '2020-05-07'
-  matchDelay: 0
+  latestDays: 3
+  matchDelay: 5000
   oddsDelay: 3000 #3s
   oddsChangeDelay: 3000
 
   handicapDelay: 3000
   handicapChangeDelay: 3000
+  handicapAnalysisDelay: 3000
 
   overunderDelay: 3000 #3s
   overunderChangeDelay: 3000 #3s
@@ -82,8 +84,9 @@ download:
 # ----------------- Seconds (0 - 59)
 scheduled:
   cron:
-    downloadMatch: '0 0/1 * * * *'
-    updateMatch: '0/30 * * * * *'
+    downloadMatch: '0 0/1 * * * *'             #at every 1 minutes
+    updateMatch: '0/30 * * * * *'              #at every 30 seconds
+    analyzeHandicap: '* 0/3 * * * *'           #at every 1 minutes
 
 ---
 server:
@@ -165,5 +168,6 @@ download:
 # ----------------- Seconds (0 - 59)
 scheduled:
   cron:
-    downloadMatch: '* * 0/3 * * *'
-    updateMatch: '* 0/5 * * * *'
+    downloadMatch: '* * 0/3 * * *'              #at every 3 hours
+    updateMatch: '* 0/5 * * * *'                #at every 5 minutes
+    analyzeHandicap: '* 0/15 * * * *'           #at every 15 minutes

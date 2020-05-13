@@ -10,9 +10,10 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.time.Instant;
-import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -21,11 +22,19 @@ public class MatchService {
     @Autowired
     private MatchRepository matchRepository;
 
-    public List<Match> getMatchListOfLatestDays(int latestDays) {
-        Instant today = DateUtils.asInstant(LocalDate.now());
-        Instant start = today.minus(latestDays, ChronoUnit.DAYS);
-        Instant end = today.plus(latestDays, ChronoUnit.DAYS);
-        return matchRepository.findByDateBetween(start, end);
+    public List<Match> findMatchesOfLatestDaysWithSpecifiedDate(Instant date, int latestDays) {
+        Instant start = date.minus(latestDays, ChronoUnit.DAYS);
+        Instant end = date.plus(latestDays, ChronoUnit.DAYS);
+        return findMatchesBetweenStartAndEnd(start, end);
+    }
+
+    public List<Match> findMatchesBetweenStartAndEnd(Instant start, Instant end) {
+        return matchRepository.findByDateBetween(start, end)
+                .parallelStream()
+                .sorted(Comparator
+                        .comparing(Match::getKickoffTime)
+                        .reversed())
+                .collect(Collectors.toList());
     }
 
     @Transactional

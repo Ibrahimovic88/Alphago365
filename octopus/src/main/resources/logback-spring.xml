@@ -42,6 +42,10 @@
             <appender-ref ref="STDOUT" />
             <appender-ref ref="FILE-ROLLING" />
         </logger>
+        <logger name="org.springframework.security" additivity="false" level="debug">
+            <appender-ref ref="STDOUT" />
+            <appender-ref ref="FILE-ROLLING" />
+        </logger>
     </springProfile>
 
     <springProfile name="prod">

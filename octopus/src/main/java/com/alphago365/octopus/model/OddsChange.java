@@ -30,12 +30,12 @@ public class OddsChange extends DateAudit {
     private double draw;
     private double away;
 
+    public OddsChange(Odds odds) {
+        this.odds = odds;
+    }
+
     @JsonIgnore
     public Instant getUpdateTime() {
         return compositeChangeId.getUpdateTime();
-    }
-
-    public OddsChange(Odds odds) {
-        this.odds = odds;
     }
 }

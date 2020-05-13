@@ -35,7 +35,7 @@ public class OverunderJob extends MatchRelatedJob {
     public void runJob() {
         AtomicLong sum = new AtomicLong(0);
         save(parse(download())).forEach(overunder -> {
-            sum.getAndAdd(downloadConfig.getOverunderChangeDelay());
+            sum.getAndAdd(jobConfig.getOverunderChangeJobDelay());
             OverunderChangeJob overunderChangeJob = applicationContext.getBean(OverunderChangeJob.class, sum.get(), overunder);
             priorityJobScheduler.scheduleJob(overunderChangeJob);
         });
