@@ -25,6 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     static String[] allWhitelist = {
             // static resource whitelist
             "/",
+            "/**/api/v2",
             "/login",
             "/error",
             "/favicon.ico",

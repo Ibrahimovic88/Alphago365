@@ -3,6 +3,9 @@ spring:
     active: dev
 ---
 server:
+  port: 8888
+  servlet:
+    context-path: /api/v2
   error:
     include-stacktrace: never
 spring:
@@ -20,7 +23,7 @@ spring:
       INDENT_OUTPUT: true
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
@@ -36,7 +39,7 @@ job:
   minSleepMilliseconds: 3000
 
 download:
-  matchDate: '2020-05-07'
+  #matchDate: '2020-05-07'
   latestDays: 3
   matchDelay: 5000
   oddsDelay: 3000 #3s
@@ -90,6 +93,9 @@ scheduled:
 
 ---
 server:
+  port: 8888
+  servlet:
+    context-path: /api/v2
   error:
     include-stacktrace: never
 spring:
@@ -100,7 +106,7 @@ spring:
       maximumPoolSize: 10
     url: jdbc:postgresql://localhost:5432/octopusdb
     username: octopus
-    password: changeme
+    password: =oAO4MWa29WbphWYyJWS
     initialization-mode: always
   jackson:
     serialization:

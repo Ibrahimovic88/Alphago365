@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 public class IndexController {
 
-    @GetMapping(value = "/")
+    @GetMapping(value = {"/", "/api/v2"})
     public ModelAndView index(HttpServletRequest req, ModelMap model) {
-        return new ModelAndView("redirect:" + req.getContextPath() + "/swagger-ui.html", model);
+        return new ModelAndView("redirect:/swagger-ui.html", model);
     }
 }

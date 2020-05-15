@@ -32,17 +32,12 @@ public class MatchService {
         return matchRepository.findByDateBetween(start, end)
                 .parallelStream()
                 .sorted(Comparator
-                        .comparing(Match::getKickoffTime)
-                        .reversed())
+                        .comparing(Match::getKickoffTime))
                 .collect(Collectors.toList());
     }
 
     @Transactional
     public void save(Match match) {
-        if (matchRepository.existsById(match.getId())) {
-            log.warn("Skip to save existing match " + match);
-            return;
-        }
         matchRepository.save(match);
     }
 
