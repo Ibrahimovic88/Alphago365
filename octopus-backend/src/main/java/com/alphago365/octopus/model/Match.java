@@ -1,5 +1,6 @@
 package com.alphago365.octopus.model;
 
+import com.alphago365.octopus.converter.WdlConverter;
 import com.alphago365.octopus.model.audit.DateAudit;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
@@ -8,7 +9,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.Instant;
-import java.time.LocalDate;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = false)
@@ -32,6 +32,15 @@ public class Match extends DateAudit {
     private String away;
 
     private Instant kickoffTime;
+
+    @Convert(converter = WdlConverter.class)
+    private WDL actualWdl = WDL.UNKNOWN; // default
+
+    private Integer halfHomeGoals;
+    private Integer halfAwayGoals;
+
+    private Integer finalHomeGoals;
+    private Integer finalAwayGoals;
 
     public String toString() {
         return String.format("%d %s %s %svs%s", id, league, kickoffTime.toString(), home, away);

@@ -3,7 +3,7 @@ spring:
     active: dev
 ---
 server:
-  port: 8888
+  port: 80
   servlet:
     context-path: /api/v2
   error:
@@ -174,6 +174,6 @@ download:
 # ----------------- Seconds (0 - 59)
 scheduled:
   cron:
-    downloadMatch: '* * 0/3 * * *'              #at every 3 hours
+    downloadMatch: '* 0/5 * * * *'              #at every 5 minutes
     updateMatch: '* 0/5 * * * *'                #at every 5 minutes
     analyzeHandicap: '* 0/15 * * * *'           #at every 15 minutes

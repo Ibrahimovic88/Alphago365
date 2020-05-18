@@ -107,7 +107,7 @@ public class HandicapAnalysisJob extends HandicapRelatedJob {
 
     private boolean isWaterOverflow(HandicapChange current, HandicapChange changed) {
         if (current.getBoundary() != changed.getBoundary()) {
-            log.warn("Boundary not equals, skip to check if water overflow");
+            log.debug("Boundary not equals, skip to check if water overflow");
             return false;
         }
         double delta;

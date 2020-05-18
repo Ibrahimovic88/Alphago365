@@ -1,24 +1,29 @@
 package com.alphago365.octopus.parser;
 
+import com.alphago365.octopus.converter.WdlConverter;
 import com.alphago365.octopus.exception.JsonParseException;
 import com.alphago365.octopus.exception.ParseException;
 import com.alphago365.octopus.model.Match;
 import com.alphago365.octopus.util.DateUtils;
 import com.github.openjson.JSONArray;
 import com.github.openjson.JSONObject;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotNull;
 import java.time.Instant;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
 
+@Slf4j
 @Component
 public class MatchParser extends ListParser<Match> {
+
+    @Autowired
+    private WdlConverter wdlConverter;
 
     @Override
     public List<Match> parseList(@NotNull String json) throws ParseException {
@@ -54,6 +59,15 @@ public class MatchParser extends ListParser<Match> {
         LocalDateTime localDateTime = DateUtils.parseToDateTime(item.getString("MatchTime"), "yyyy-MM-dd HH:mm:ss");
         match.setKickoffTime(DateUtils.asInstant(localDateTime));
 
+        if (!item.isNull("WDLResult")) {
+            int actualResult = item.getInt("WDLResult");
+            match.setActualWdl(wdlConverter.convertToEntityAttribute(actualResult));
+        }
+        match.setHalfHomeGoals(item.getInt("HalfHomeGoals"));
+        match.setHalfAwayGoals(item.getInt("HalfAwayGoals"));
+
+        match.setFinalHomeGoals(item.getInt("HomeGoals"));
+        match.setFinalAwayGoals(item.getInt("AwayGoals"));
         return match;
     }
 }
