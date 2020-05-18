@@ -38,19 +38,21 @@ job:
   poolSize: 1
   minSleepMilliseconds: 3000
 
+  matchJobDelay: 3000
+
+  oddsJobDelay: 3000
+  oddsChangeJobDelay: 3000
+
+  handicapJobDelay: 3000
+  handicapChangeJobDelay: 3000
+  handicapAnalysisJobDelay: 3000
+
+  overunderJobDelay: 3000
+  overunderChangeJobDelay: 3000
+
 download:
-  #matchDate: '2020-05-07'
-  latestDays: 3
-  matchDelay: 5000
-  oddsDelay: 3000 #3s
-  oddsChangeDelay: 3000
-
-  handicapDelay: 3000
-  handicapChangeDelay: 3000
-  handicapAnalysisDelay: 3000
-
-  overunderDelay: 3000 #3s
-  overunderChangeDelay: 3000 #3s
+  matchDate: '2020-05-16'
+  latestDays: 1
 
   matchUrl: 'https://as.okooo.com/I/?method=mc.data.schedule.getOkoooSchedule&LotteryType=SportterySoccerMix&LotteryNo=DATE_PLACEHOLDER'
 
@@ -87,9 +89,9 @@ download:
 # ----------------- Seconds (0 - 59)
 scheduled:
   cron:
-    downloadMatch: '0 0/1 * * * *'             #at every 1 minutes
-    updateMatch: '0/30 * * * * *'              #at every 30 seconds
-    analyzeHandicap: '* 0/3 * * * *'           #at every 1 minutes
+    downloadMatch: '* 0/1 * * * *'             #at every 1 minutes
+    updateMatch: '* 0/1 * * * *'               #at every 1 minutes
+    analyzeHandicap: '* 0/1 * * * *'           #at every 1 minutes
 
 ---
 server:
@@ -106,7 +108,7 @@ spring:
       maximumPoolSize: 10
     url: jdbc:postgresql://localhost:5432/octopusdb
     username: octopus
-    password: =oAO4MWa29WbphWYyJWS
+    password: '=oAO4MWa29WbphWYyJWS'
     initialization-mode: always
   jackson:
     serialization:
@@ -126,18 +128,31 @@ jwt:
 
 job:
   poolSize: 1
-  minSleepMilliseconds: 3000
+  minSleepMilliseconds: 5000
+
+  matchJobDelay: 3000
+
+  oddsJobDelay: 3000
+  oddsChangeJobDelay: 3000
+
+  handicapJobDelay: 3000
+  handicapChangeJobDelay: 3000
+  handicapAnalysisJobDelay: 3000
+
+  overunderJobDelay: 3000
+  overunderChangeJobDelay: 3000
 
 download:
-  matchDelay: 0
-  oddsDelay: 3000 #3s
-  oddsChangeDelay: 3000
+  matchDelay: 5000
+  oddsDelay: 5000
+  oddsChangeDelay: 5000
 
-  handicapDelay: 3000
-  handicapChangeDelay: 3000
+  handicapDelay: 5000
+  handicapChangeDelay: 5000
+  handicapAnalysisJobDelay: 5000
 
-  overunderDelay: 3000 #3s
-  overunderChangeDelay: 3000 #3s
+  overunderDelay: 5000
+  overunderChangeDelay: 5000
 
   matchUrl: 'https://as.okooo.com/I/?method=mc.data.schedule.getOkoooSchedule&LotteryType=SportterySoccerMix&LotteryNo=DATE_PLACEHOLDER'
 

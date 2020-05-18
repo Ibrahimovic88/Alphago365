@@ -42,7 +42,7 @@ public class PriorityJobScheduler {
                 }
                 long intervalMilliseconds = ChronoUnit.MILLIS.between(lastExecuteTime, LocalDateTime.now());
                 if (intervalMilliseconds <= minSleepMilliseconds) {
-                    log.debug(String.format("Sleep %dms, due to interval from last job %dms is less than %dms",
+                    log.trace(String.format("Sleep %dms, due to interval from last job %dms is less than %dms",
                             minSleepMilliseconds, intervalMilliseconds, minSleepMilliseconds));
                     try {
                         Thread.sleep(minSleepMilliseconds);
@@ -69,7 +69,7 @@ public class PriorityJobScheduler {
     public void scheduleJob(Job job) {
         String jobName = job.getJobName();
         if (jobCache.containsKey(jobName)) {
-            log.debug("Skip to schedule existing job " + jobName);
+            log.trace("Skip to schedule existing job " + jobName);
             return;
         }
         jobDelayQueue.add(job);
@@ -105,7 +105,7 @@ public class PriorityJobScheduler {
                 }
                 builder.append("\n");
             });
-            log.debug(builder.toString());
+            log.trace(builder.toString());
         }
     }
 }

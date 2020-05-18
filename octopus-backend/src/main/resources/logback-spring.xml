@@ -1,61 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <property name="LOG_FILENAME" value="octopus-server"/>
-    <property name="HOME_LOG" value="logs/${LOG_FILENAME}.log"/>
-
-    <!-- Print to STDOUT appender -->
+    <!-- Log to STDOUT -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger{36}.%M - %msg%n</pattern>
-        </encoder>
-    </appender>
-
-    <!-- Save to file appender -->
-    <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${HOME_LOG}</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>logs/archived/${LOG_FILENAME}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <!-- each archived file, size max 10MB -->
-            <maxFileSize>10MB</maxFileSize>
-            <!-- total size of all archive files, if total size > 5GB,
-				it will delete old archived file -->
-            <totalSizeCap>5GB</totalSizeCap>
-            <!-- 60 days to keep -->
-            <maxHistory>60</maxHistory>
-        </rollingPolicy>
-        <encoder>
-            <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger{36}.%M - %msg%n</pattern>
+            <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger{36}.%M - %msg%n
+            </pattern>
         </encoder>
     </appender>
 
     <springProfile name="dev">
         <root level="info">
-            <appender-ref ref="STDOUT" />
-            <appender-ref ref="FILE-ROLLING" />
+            <appender-ref ref="STDOUT"/>
         </root>
         <logger name="com.alphago365.octopus" additivity="false" level="debug">
-            <appender-ref ref="STDOUT" />
-            <appender-ref ref="FILE-ROLLING" />
+            <appender-ref ref="STDOUT"/>
         </logger>
         <logger name="org.hibernate" additivity="false" level="info">
-            <appender-ref ref="STDOUT" />
-            <appender-ref ref="FILE-ROLLING" />
+            <appender-ref ref="STDOUT"/>
         </logger>
         <logger name="org.springframework.security" additivity="false" level="debug">
-            <appender-ref ref="STDOUT" />
-            <appender-ref ref="FILE-ROLLING" />
+            <appender-ref ref="STDOUT"/>
         </logger>
     </springProfile>
 
     <springProfile name="prod">
-        <root level="info">
-            <appender-ref ref="FILE-ROLLING" />
-        </root>
+        <!-- Log to FILE -->
+        <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>/octopus/backend/logs/octopus.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+                <fileNamePattern>/octopus/backend/logs/archived/octopus.%d{yyyy-MM-dd-mm}.%i.log.zip</fileNamePattern>
+                <!-- each archived file, size max 10MB -->
+                <maxFileSize>10MB</maxFileSize>
+                <!-- total size of all archive files, if total size > 5GB, it will delete old archived file -->
+                <totalSizeCap>1GB</totalSizeCap>
+                <!-- 60 days to keep -->
+                <maxHistory>60</maxHistory>
+            </rollingPolicy>
+            <encoder>
+                <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger{36}.%M - %msg%n
+                </pattern>
+            </encoder>
+        </appender>
         <logger name="com.alphago365.octopus" additivity="false" level="info">
-            <appender-ref ref="STDOUT" />
-            <appender-ref ref="FILE-ROLLING" />
+            <appender-ref ref="FILE-ROLLING"/>
         </logger>
+        <root level="info">
+            <appender-ref ref="FILE-ROLLING"/>
+        </root>
     </springProfile>
 
 </configuration>

@@ -118,7 +118,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("http://localhost");
+                registry.addMapping("/**")
+                        .allowedOrigins("http://localhost")
+                        .allowedOrigins("http://127.0.0.1")
+                        .allowedOrigins("http://localhost:8080")
+                        .allowedOrigins("http://127.0.0.1:8080")
+                ;
             }
         };
     }

@@ -6,6 +6,57 @@ CREATE DATABASE octopusdb;
 CREATE ROLE octopus WITH LOGIN NOSUPERUSER INHERIT CREATEDB NOCREATEROLE NOREPLICATION PASSWORD 'changeme';
 GRANT ALL PRIVILEGES ON DATABASE octopusdb TO octopus;
 ```
+
+### Install as systemd service
+Step 1: Create an Application User and group
+```shell script
+sudo groupadd -r octopus
+sudo useradd -r -s /bin/false -g octopus octopus
+```
+Step 2: Create Systemd Service
+
+Create work directory 
+```shell script
+sudo mkdir -p /octopus/backend
+sudo chown -R octopus:octopus /octopus/backend
+```
+Create systemd service
+```shell script
+sudo vim /etc/systemd/system/octopus.service
+[Unit]
+Description=Octopus Spring Boot service
+
+[Service]
+WorkingDirectory=/octopus/backend
+ExecStart=/usr/bin/java -Xms128m -Xmx512m -jar octopus-*.jar
+User=octopus
+Type=simple
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Step 3: Start Java Application service with systemd
+```shell script
+# To start service during boot up of the host
+sudo systemctl enable octopus.service
+
+# To check service status
+sudo systemctl status octopus.service
+
+# To start/stop/restart service 
+sudo systemctl start octopus.service
+sudo systemctl stop octopus.service
+sudo systemctl restart octopus.service
+```
+
+Accessing the logs with journalctl
+```shell script
+sudo journalctl -u octopus.service -f
+```
+
 ### Reference Documentation
 For further reference, please consider the following sections:
 

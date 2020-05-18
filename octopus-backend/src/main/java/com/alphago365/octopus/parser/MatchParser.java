@@ -59,15 +59,23 @@ public class MatchParser extends ListParser<Match> {
         LocalDateTime localDateTime = DateUtils.parseToDateTime(item.getString("MatchTime"), "yyyy-MM-dd HH:mm:ss");
         match.setKickoffTime(DateUtils.asInstant(localDateTime));
 
-        if (!item.isNull("WDLResult")) {
-            int actualResult = item.getInt("WDLResult");
-            match.setActualWdl(wdlConverter.convertToEntityAttribute(actualResult));
-        }
         match.setHalfHomeGoals(item.getInt("HalfHomeGoals"));
         match.setHalfAwayGoals(item.getInt("HalfAwayGoals"));
 
         match.setFinalHomeGoals(item.getInt("HomeGoals"));
         match.setFinalAwayGoals(item.getInt("AwayGoals"));
+
+        int wdlResult;
+        if (match.getFinalHomeGoals() == -1
+                || match.getFinalAwayGoals() == -1) {
+            wdlResult = -1;
+        } else {
+            wdlResult = (match.getFinalHomeGoals() > match.getFinalAwayGoals() ? 3
+                    : (match.getFinalHomeGoals().equals(match.getFinalAwayGoals()) ? 1 : 0)
+            );
+        }
+        match.setActualWdl(wdlConverter.convertToEntityAttribute(wdlResult));
+
         return match;
     }
 }
