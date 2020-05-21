@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="com.alphago365.octopus.persistence.Converters" />
+
+        <variable
+            name="matchChild"
+            type="com.alphago365.octopus.payload.MatchChild" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_match_height"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <TextView
+            android:id="@+id/tv_serialnumber"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="start|center_vertical"
+            android:text="@{matchChild.match.serialNumber.toString()}" />
+
+        <TextView
+            android:id="@+id/tv_kickofftime"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="end|center_vertical"
+            android:text="@{Converters.formatToPrettyDateTime(matchChild.match.kickoffTime)}" />
+
+        <TextView
+            android:id="@+id/tv_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="end|center_vertical"
+            android:text="@{matchChild.match.home}" />
+
+        <TextView
+            android:id="@+id/tv_score"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="@{Converters.formatToPrettyScore(matchChild.match)}" />
+
+        <TextView
+            android:id="@+id/tv_away"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="start|center_vertical"
+            android:text="@{matchChild.match.away}" />
+    </LinearLayout>
+</layout>

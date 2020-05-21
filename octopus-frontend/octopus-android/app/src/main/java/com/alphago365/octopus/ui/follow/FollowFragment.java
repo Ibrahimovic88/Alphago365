@@ -1,4 +1,4 @@
-package com.alphago365.octopus.ui.dashboard;
+package com.alphago365.octopus.ui.follow;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.alphago365.octopus.R;
 
-public class DashboardFragment extends Fragment {
+public class FollowFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
+    private FollowViewModel followViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        followViewModel =
+                ViewModelProviders.of(this).get(FollowViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_follow, container, false);
         final TextView textView = root.findViewById(R.id.text_dashboard);
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        followViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

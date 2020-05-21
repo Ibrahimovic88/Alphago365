@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="com.alphago365.octopus.persistence.Converters" />
+
+        <variable
+            name="matchHeader"
+            type="com.alphago365.octopus.payload.MatchHeader" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_match_height"
+        android:background="@color/colorHeader"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:gravity="start|center_vertical"
+            android:padding="6dp"
+            android:text="@{Converters.formatToPrettyDate(matchHeader.date)}"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:padding="6dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:gravity="end|center_vertical"
+            android:text="@{matchHeader.description}"
+            android:textColor="@android:color/white" />
+
+
+    </LinearLayout>
+</layout>

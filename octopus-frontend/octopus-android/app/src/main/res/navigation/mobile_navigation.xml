@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_match">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.alphago365.octopus.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_match"
+        android:name="com.alphago365.octopus.ui.match.MatchFragment"
+        android:label="@string/title_match"
+        tools:layout="@layout/fragment_match" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.alphago365.octopus.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_follow"
+        android:name="com.alphago365.octopus.ui.follow.FollowFragment"
+        android:label="@string/title_follow"
+        tools:layout="@layout/fragment_follow" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.alphago365.octopus.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_profile"
+        android:name="com.alphago365.octopus.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
