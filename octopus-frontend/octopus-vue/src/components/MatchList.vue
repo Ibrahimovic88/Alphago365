@@ -17,7 +17,7 @@
 				<td>{{match.id}}</td>
 				<td>{{match.serialNumber}}</td>
 				<td>{{match.league}}</td>
-				<td>{{match.kickoffTime | toPrettyDateTime }}</td>
+				<td>{{match.kickoffTime | moment('MM/DD HH:mm') }}</td>
 				<td>{{match.home}}</td>
 				<td>{{match.away}}</td>
 				<td>{{match | formatStatus}}</td>
