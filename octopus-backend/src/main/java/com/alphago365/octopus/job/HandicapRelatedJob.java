@@ -4,7 +4,7 @@ import com.alphago365.octopus.model.Handicap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
-abstract class HandicapRelatedJob extends DownloadJob {
+abstract class HandicapRelatedJob<T> extends DownloadJob<T> {
 
     protected final Handicap handicap;
 

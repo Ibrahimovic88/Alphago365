@@ -19,7 +19,7 @@ import java.util.concurrent.atomic.AtomicLong;
 @Scope("prototype")
 @Component
 @Slf4j
-public class OverunderJob extends MatchRelatedJob {
+public class OverunderJob extends MatchRelatedJob<Overunder> {
 
     @Autowired
     private OverunderService overunderService;
@@ -33,31 +33,27 @@ public class OverunderJob extends MatchRelatedJob {
 
     @Override
     public void runJob() {
+        String url = downloadConfig.getOverunderUrl()
+                .replaceFirst(MATCH_ID_PLACEHOLDER, String.valueOf(match.getId()));
         AtomicLong sum = new AtomicLong(0);
-        save(parse(download())).forEach(overunder -> {
+        save(parse(download(url))).forEach(overunder -> {
             sum.getAndAdd(jobConfig.getOverunderChangeJobDelay());
             OverunderChangeJob overunderChangeJob = applicationContext.getBean(OverunderChangeJob.class, sum.get(), overunder);
             priorityJobScheduler.scheduleJob(overunderChangeJob);
         });
     }
 
-    private List<Overunder> save(List<Overunder> overunderList) {
+    public List<Overunder> save(List<Overunder> overunderList) {
         return overunderService.saveAll(overunderList);
     }
 
-    private List<Overunder> parse(String json) {
+    public List<Overunder> parse(String json) {
         try {
             OverunderParser overunderParser = applicationContext.getBean(OverunderParser.class, match);
             return overunderParser.parseResponse(json);
         } catch (ParseException e) {
-            log.error("Download odds error", e);
+            log.error("Download overunder error", e);
         }
         return Collections.emptyList();
-    }
-
-    private String download() {
-        String url = downloadConfig.getOverunderUrl()
-                .replaceFirst("MATCH_ID_PLACEHOLDER", String.valueOf(match.getId()));
-        return restService.getJson(url);
     }
 }

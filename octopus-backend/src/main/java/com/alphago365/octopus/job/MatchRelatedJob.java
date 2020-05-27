@@ -4,7 +4,7 @@ import com.alphago365.octopus.model.Match;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
-abstract class MatchRelatedJob extends DownloadJob {
+abstract class MatchRelatedJob<T> extends DownloadJob<T> {
 
     protected final Match match;
 

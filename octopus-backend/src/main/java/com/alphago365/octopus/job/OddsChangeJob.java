@@ -17,7 +17,7 @@ import java.util.List;
 @Scope("prototype")
 @Component
 @Slf4j
-public class OddsChangeJob extends OddsRelatedJob {
+public class OddsChangeJob extends OddsRelatedJob<OddsChange> {
 
     @Autowired
     private OddsService oddsService;
@@ -28,29 +28,25 @@ public class OddsChangeJob extends OddsRelatedJob {
 
     @Override
     public void runJob() {
-        save(parse(download()));
+        Long matchId = odds.getMatch().getId();
+        Integer providerId = odds.getProvider().getId();
+        String url = downloadConfig.getOddsChangeUrl()
+                .replaceFirst(MATCH_ID_PLACEHOLDER, String.valueOf(matchId)) // first
+                .replaceFirst(PROVIDER_ID_PLACEHOLDER, String.valueOf(providerId)); // second
+        save(parse(download(url)));
     }
 
-    private List<OddsChange> save(List<OddsChange> oddsChangeList) {
+    public List<OddsChange> save(List<OddsChange> oddsChangeList) {
         return oddsService.saveAllChanges(oddsChangeList);
     }
 
-    private List<OddsChange> parse(String json) {
+    public List<OddsChange> parse(String json) {
         try {
             OddsChangeParser oddsChangeParser = applicationContext.getBean(OddsChangeParser.class, odds);
             return oddsChangeParser.parseResponse(json);
         } catch (ParseException e) {
-            log.error("Download odds error", e);
+            log.error("Download odds change error", e);
         }
         return Collections.emptyList();
-    }
-
-    private String download() {
-        Long matchId = odds.getMatch().getId();
-        Integer providerId = odds.getProvider().getId();
-        String url = downloadConfig.getOddsChangeUrl()
-                .replaceFirst("MATCH_ID_PLACEHOLDER", String.valueOf(matchId)) // first
-                .replaceFirst("PROVIDER_ID_PLACEHOLDER", String.valueOf(providerId)); // second
-        return restService.getJson(url);
     }
 }

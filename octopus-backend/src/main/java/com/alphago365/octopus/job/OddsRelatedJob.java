@@ -4,7 +4,7 @@ import com.alphago365.octopus.model.Odds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
-abstract class OddsRelatedJob extends DownloadJob {
+abstract class OddsRelatedJob<T> extends DownloadJob<T> {
 
     protected final Odds odds;
 

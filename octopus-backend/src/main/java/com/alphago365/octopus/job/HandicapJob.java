@@ -19,7 +19,7 @@ import java.util.concurrent.atomic.AtomicLong;
 @Scope("prototype")
 @Component
 @Slf4j
-public class HandicapJob extends MatchRelatedJob {
+public class HandicapJob extends MatchRelatedJob<Handicap> {
 
     @Autowired
     private HandicapService handicapService;
@@ -34,18 +34,20 @@ public class HandicapJob extends MatchRelatedJob {
     @Override
     public void runJob() {
         AtomicLong sum = new AtomicLong(0);
-        save(parse(download())).forEach(handicap -> {
+        String url = downloadConfig.getHandicapUrl()
+                .replaceFirst(MATCH_ID_PLACEHOLDER, String.valueOf(match.getId()));
+        save(parse(download(url))).forEach(handicap -> {
             sum.getAndAdd(jobConfig.getHandicapChangeJobDelay());
             HandicapChangeJob handicapChangeJob = applicationContext.getBean(HandicapChangeJob.class, sum.get(), handicap);
             priorityJobScheduler.scheduleJob(handicapChangeJob);
         });
     }
 
-    private List<Handicap> save(List<Handicap> handicapList) {
+    public List<Handicap> save(List<Handicap> handicapList) {
         return handicapService.saveAll(handicapList);
     }
 
-    private List<Handicap> parse(String json) {
+    public List<Handicap> parse(String json) {
         try {
             HandicapParser oddsParser = applicationContext.getBean(HandicapParser.class, match);
             return oddsParser.parseResponse(json);
@@ -53,11 +55,5 @@ public class HandicapJob extends MatchRelatedJob {
             log.error("Download odds error", e);
         }
         return Collections.emptyList();
-    }
-
-    private String download() {
-        String url = downloadConfig.getHandicapUrl()
-                .replaceFirst("MATCH_ID_PLACEHOLDER", String.valueOf(match.getId()));
-        return restService.getJson(url);
     }
 }

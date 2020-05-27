@@ -18,7 +18,7 @@ import java.util.List;
 @Scope("prototype")
 @Component
 @Slf4j
-public class HandicapChangeJob extends HandicapRelatedJob {
+public class HandicapChangeJob extends HandicapRelatedJob<HandicapChange> {
 
     @Autowired
     private HandicapService handicapService;
@@ -32,29 +32,25 @@ public class HandicapChangeJob extends HandicapRelatedJob {
 
     @Override
     public void runJob() {
-        save(parse(download()));
+        Long matchId = handicap.getMatch().getId();
+        Integer providerId = handicap.getProvider().getId();
+        String url = downloadConfig.getHandicapChangeUrl()
+                .replaceFirst(MATCH_ID_PLACEHOLDER, String.valueOf(matchId)) // first
+                .replaceFirst(PROVIDER_ID_PLACEHOLDER, String.valueOf(providerId)); // second
+        save(parse(download(url)));
     }
 
-    private List<HandicapChange> save(List<HandicapChange> handicapChangeList) {
+    public List<HandicapChange> save(List<HandicapChange> handicapChangeList) {
         return handicapService.saveAllChanges(handicapChangeList);
     }
 
-    private List<HandicapChange> parse(String json) {
+    public List<HandicapChange> parse(String json) {
         try {
             HandicapChangeParser oddsParser = applicationContext.getBean(HandicapChangeParser.class, handicap);
             return oddsParser.parseResponse(json);
         } catch (ParseException e) {
-            log.error("Download odds error", e);
+            log.error("Download handicap change error", e);
         }
         return Collections.emptyList();
-    }
-
-    private String download() {
-        Long matchId = handicap.getMatch().getId();
-        Integer providerId = handicap.getProvider().getId();
-        String url = downloadConfig.getHandicapChangeUrl()
-                .replaceFirst("MATCH_ID_PLACEHOLDER", String.valueOf(matchId)) // first
-                .replaceFirst("PROVIDER_ID_PLACEHOLDER", String.valueOf(providerId)); // second
-        return restService.getJson(url);
     }
 }

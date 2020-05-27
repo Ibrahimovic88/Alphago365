@@ -49,7 +49,7 @@ public class MatchService {
     }
 
     @Transactional
-    public void saveAll(List<Match> matchList) {
-        matchRepository.saveAll(matchList);
+    public List<Match> saveAll(List<Match> matchList) {
+        return matchRepository.saveAll(matchList);
     }
 }

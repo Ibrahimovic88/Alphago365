@@ -1,7 +1,7 @@
 package com.alphago365.octopus.job;
 
 import com.alphago365.octopus.config.JobConfig;
-import com.alphago365.octopus.exception.RunJobException;
+import com.alphago365.octopus.exception.JobException;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public abstract class Job implements Delayed, Runnable {
         this.startTime = System.currentTimeMillis() + delay;
     }
 
-    protected abstract void runJob() throws RunJobException;
+    protected abstract void runJob() throws JobException;
 
     @Override
     public void run() {

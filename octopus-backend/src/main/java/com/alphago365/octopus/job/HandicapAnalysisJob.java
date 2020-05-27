@@ -17,7 +17,7 @@ import java.util.List;
 @Scope("prototype")
 @Component
 @Slf4j
-public class HandicapAnalysisJob extends HandicapRelatedJob {
+public class HandicapAnalysisJob extends HandicapRelatedJob<HandicapAnalysis> {
 
     @Autowired
     private HandicapService handicapService;
@@ -38,8 +38,13 @@ public class HandicapAnalysisJob extends HandicapRelatedJob {
         save(analyze());
     }
 
-    private List<HandicapAnalysis> save(List<HandicapAnalysis> handicapChangeList) {
+    public List<HandicapAnalysis> save(List<HandicapAnalysis> handicapChangeList) {
         return handicapService.saveAllAnalyses(handicapChangeList);
+    }
+
+    @Override
+    public List<HandicapAnalysis> parse(String json) {
+        throw new IllegalStateException("Never invoke this method");
     }
 
     private List<HandicapAnalysis> analyze() {

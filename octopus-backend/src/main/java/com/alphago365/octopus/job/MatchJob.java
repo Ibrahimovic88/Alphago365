@@ -17,7 +17,7 @@ import java.util.List;
 @Scope("prototype")
 @Component
 @Slf4j
-public class MatchJob extends DownloadJob {
+public class MatchJob extends DownloadJob<Match> {
 
     @Autowired
     private MatchParser matchParser;
@@ -35,24 +35,20 @@ public class MatchJob extends DownloadJob {
 
     @Override
     public void runJob() {
-        save(parse(download()));
+        String url = downloadConfig.getMatchUrl().replace("DATE_PLACEHOLDER", matchDate);
+        save(parse(download(url)));
     }
 
-    private void save(List<Match> matchList) {
-        matchService.saveAll(matchList);
+    public List<Match> save(List<Match> matchList) {
+        return matchService.saveAll(matchList);
     }
 
-    private List<Match> parse(String json) {
+    public List<Match> parse(String json) {
         try {
             return matchParser.parseResponse(json);
         } catch (ParseException e) {
             log.error("Parse match error", e);
         }
         return Collections.emptyList();
-    }
-
-    private String download() {
-        String url = downloadConfig.getMatchUrl().replace("DATE_PLACEHOLDER", matchDate);
-        return restService.getJson(url);
     }
 }

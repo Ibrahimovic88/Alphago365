@@ -1,7 +1,7 @@
 package com.alphago365.octopus;
 
 import com.alphago365.octopus.config.JobConfig;
-import com.alphago365.octopus.exception.RunJobException;
+import com.alphago365.octopus.exception.JobException;
 import com.alphago365.octopus.job.Job;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -61,7 +61,7 @@ public class PriorityJobScheduler {
     private void dumpJobCache(Job job) {
         try {
             new DumpJobCacheJob(job).runJob();
-        } catch (RunJobException e) {
+        } catch (JobException e) {
             log.error("Dump job error", e);
         }
     }
@@ -92,7 +92,7 @@ public class PriorityJobScheduler {
         }
 
         @Override
-        protected void runJob() throws RunJobException {
+        protected void runJob() throws JobException {
             List<Job> jobCacheCopy = Collections.unmodifiableList(new ArrayList<>(jobCache.values()));
             StringBuilder builder = new StringBuilder("\n");
             jobCacheCopy.stream().sorted(Comparator.naturalOrder()).forEach(job -> {

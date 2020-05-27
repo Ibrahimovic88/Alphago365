@@ -4,7 +4,7 @@ import com.alphago365.octopus.model.Overunder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
-abstract class OverunderRelatedJob extends DownloadJob {
+abstract class OverunderRelatedJob<T> extends DownloadJob<T> {
 
     protected final Overunder overunder;
 

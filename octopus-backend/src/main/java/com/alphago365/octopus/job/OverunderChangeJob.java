@@ -17,7 +17,7 @@ import java.util.List;
 @Scope("prototype")
 @Component
 @Slf4j
-public class OverunderChangeJob extends OverunderRelatedJob {
+public class OverunderChangeJob extends OverunderRelatedJob<OverunderChange> {
 
     @Autowired
     private OverunderService handicapService;
@@ -28,14 +28,19 @@ public class OverunderChangeJob extends OverunderRelatedJob {
 
     @Override
     public void runJob() {
-        save(parse(download()));
+        Long matchId = overunder.getMatch().getId();
+        Integer providerId = overunder.getProvider().getId();
+        String url = downloadConfig.getOverunderChangeUrl()
+                .replaceFirst(MATCH_ID_PLACEHOLDER, String.valueOf(matchId)) // first
+                .replaceFirst(PROVIDER_ID_PLACEHOLDER, String.valueOf(providerId)); // second
+        save(parse(download(url)));
     }
 
-    private List<OverunderChange> save(List<OverunderChange> overunderChangeList) {
+    public List<OverunderChange> save(List<OverunderChange> overunderChangeList) {
         return handicapService.saveAllChanges(overunderChangeList);
     }
 
-    private List<OverunderChange> parse(String json) {
+    public List<OverunderChange> parse(String json) {
         try {
             OverunderChangeParser overunderChangeParser = applicationContext.getBean(OverunderChangeParser.class, overunder);
             return overunderChangeParser.parseResponse(json);
@@ -43,14 +48,5 @@ public class OverunderChangeJob extends OverunderRelatedJob {
             log.error("Download overunder change error", e);
         }
         return Collections.emptyList();
-    }
-
-    private String download() {
-        Long matchId = overunder.getMatch().getId();
-        Integer providerId = overunder.getProvider().getId();
-        String url = downloadConfig.getOverunderChangeUrl()
-                .replaceFirst("MATCH_ID_PLACEHOLDER", String.valueOf(matchId)) // first
-                .replaceFirst("PROVIDER_ID_PLACEHOLDER", String.valueOf(providerId)); // second
-        return restService.getJson(url);
     }
 }

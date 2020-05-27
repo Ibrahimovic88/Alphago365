@@ -19,7 +19,7 @@ import java.util.concurrent.atomic.AtomicLong;
 @Scope("prototype")
 @Component
 @Slf4j
-public class OddsJob extends MatchRelatedJob {
+public class OddsJob extends MatchRelatedJob<Odds> {
 
     @Autowired
     private OddsService oddsService;
@@ -33,19 +33,21 @@ public class OddsJob extends MatchRelatedJob {
 
     @Override
     public void runJob() {
+        String url = downloadConfig.getOddsUrl()
+                .replaceFirst(MATCH_ID_PLACEHOLDER, String.valueOf(match.getId()));
         AtomicLong sum = new AtomicLong(0);
-        save(parse(download())).forEach(odds -> {
+        save(parse(download(url))).forEach(odds -> {
             sum.getAndAdd(jobConfig.getOddsChangeJobDelay());
             OddsChangeJob oddsChangeJob = applicationContext.getBean(OddsChangeJob.class, sum.get(), odds);
             priorityJobScheduler.scheduleJob(oddsChangeJob);
         });
     }
 
-    private List<Odds> save(List<Odds> oddsList) {
+    public List<Odds> save(List<Odds> oddsList) {
         return oddsService.saveAll(oddsList);
     }
 
-    private List<Odds> parse(String json) {
+    public List<Odds> parse(String json) {
         try {
             OddsParser oddsParser = applicationContext.getBean(OddsParser.class, match);
             return oddsParser.parseResponse(json);
@@ -53,11 +55,5 @@ public class OddsJob extends MatchRelatedJob {
             log.error("Download odds error", e);
         }
         return Collections.emptyList();
-    }
-
-    private String download() {
-        String url = downloadConfig.getOddsUrl()
-                .replaceFirst("MATCH_ID_PLACEHOLDER", String.valueOf(match.getId()));
-        return restService.getJson(url);
     }
 }
