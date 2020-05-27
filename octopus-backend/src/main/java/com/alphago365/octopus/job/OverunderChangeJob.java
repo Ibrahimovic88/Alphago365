@@ -20,7 +20,7 @@ import java.util.List;
 public class OverunderChangeJob extends OverunderRelatedJob<OverunderChange> {
 
     @Autowired
-    private OverunderService handicapService;
+    private OverunderService overunderService;
 
     public OverunderChangeJob(long delay, Overunder overunder) {
         super(String.format("OVC-%d-%d", overunder.getMatch().getId(), overunder.getProvider().getId()), delay, overunder);
@@ -37,7 +37,7 @@ public class OverunderChangeJob extends OverunderRelatedJob<OverunderChange> {
     }
 
     public List<OverunderChange> save(List<OverunderChange> overunderChangeList) {
-        return handicapService.saveAllChanges(overunderChangeList);
+        return overunderService.saveAllChanges(overunderChangeList);
     }
 
     public List<OverunderChange> parse(String json) {
