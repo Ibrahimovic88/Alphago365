@@ -1,15 +1,17 @@
-import axios from 'axios'
+import axios from "axios";
 
-const MATCH_API_URL = 'https://www.alphago365.com/api/v2/matches'
+const BASE_API_URL = "https://www.alphago365.com/api/v2";
 
 class MatchService {
-	retrieveLatestDaysMatches(latestDays) {
-		return axios.get(`${MATCH_API_URL}/current-date?latest-days=${latestDays}`);
-	}
+  retrieveLatestDaysMatches(latestDays) {
+    return axios.get(
+      `${BASE_API_URL}/matches/current-date?latest-days=${latestDays}`
+    );
+  }
 
-	retrieveMatch(id) {
-		return axios.get(`${MATCH_API_URL}/${id}`);
-	}
+  retrieveMatch(id) {
+    return axios.get(`${BASE_API_URL}/matches/${id}`);
+  }
 }
 
-export default new MatchService()
+export default new MatchService();

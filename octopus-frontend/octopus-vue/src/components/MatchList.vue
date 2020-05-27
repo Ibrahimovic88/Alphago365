@@ -14,7 +14,9 @@
 		</thead>
 		<tbody>
 			<tr v-for="match in matches" v-bind:key="match.id">
-				<td>{{match.id}}</td>
+				<td>
+					<router-link :to="{path: '/matches/' + match.id}">{{match.id}}</router-link>
+				</td>
 				<td>{{match.serialNumber}}</td>
 				<td>{{match.league}}</td>
 				<td>{{match.kickoffTime | moment('MM/DD HH:mm') }}</td>
@@ -57,9 +59,10 @@
 		},
 		methods: {
 			refreshMatches() {
+				console.log('Hello');
 				MatchService.retrieveLatestDaysMatches(this.latestDays)
 					.then((result) => {
-						result.statusText;
+						console.log(result.statusText);
 						this.matches = result.data;
 					});
 			},
