@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Comparator;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = false)
@@ -48,5 +49,15 @@ public class Overunder extends DateAudit {
 
     public String toString() {
         return match.toString() + " " + provider.toString();
+    }
+
+    @Transient
+    public OverunderChange getFirst() {
+        return changeHistories.stream().min(Comparator.comparing(OverunderChange::getUpdateTime)).orElse(null);
+    }
+
+    @Transient
+    public OverunderChange getCurrent() {
+        return changeHistories.stream().max(Comparator.comparing(OverunderChange::getUpdateTime)).orElse(null);
     }
 }

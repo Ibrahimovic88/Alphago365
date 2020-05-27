@@ -5,11 +5,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import org.springframework.data.domain.Page;
 
 import javax.persistence.*;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Set;
 
 @EqualsAndHashCode(callSuper = false)
 @Entity
@@ -54,5 +53,15 @@ public class Handicap extends DateAudit {
 
     public String toString() {
         return match.toString() + " " + provider.toString();
+    }
+
+    @Transient
+    public HandicapChange getFirst() {
+        return changeHistories.stream().min(Comparator.comparing(HandicapChange::getUpdateTime)).orElse(null);
+    }
+
+    @Transient
+    public HandicapChange getCurrent() {
+        return changeHistories.stream().max(Comparator.comparing(HandicapChange::getUpdateTime)).orElse(null);
     }
 }

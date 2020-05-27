@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Comparator;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = false)
@@ -50,5 +51,15 @@ public class Odds extends DateAudit {
 
     public String toString() {
         return match.toString() + " " + provider.toString();
+    }
+
+    @Transient
+    public OddsChange getFirst() {
+        return changeHistories.stream().min(Comparator.comparing(OddsChange::getUpdateTime)).orElse(null);
+    }
+
+    @Transient
+    public OddsChange getCurrent() {
+        return changeHistories.stream().max(Comparator.comparing(OddsChange::getUpdateTime)).orElse(null);
     }
 }

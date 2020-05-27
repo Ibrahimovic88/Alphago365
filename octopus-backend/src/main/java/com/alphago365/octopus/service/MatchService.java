@@ -32,7 +32,8 @@ public class MatchService {
         return matchRepository.findByDateBetween(start, end)
                 .parallelStream()
                 .sorted(Comparator
-                        .comparing(Match::getKickoffTime))
+                        .comparing(Match::getKickoffTime)
+                        .thenComparing(Match::getSerialNumber))
                 .collect(Collectors.toList());
     }
 
