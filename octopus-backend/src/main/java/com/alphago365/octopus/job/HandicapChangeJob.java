@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import java.util.Collections;
 import java.util.List;
 
 @Scope("prototype")
@@ -37,20 +36,24 @@ public class HandicapChangeJob extends HandicapRelatedJob<HandicapChange> {
         String url = downloadConfig.getHandicapChangeUrl()
                 .replaceFirst(MATCH_ID_PLACEHOLDER, String.valueOf(matchId)) // first
                 .replaceFirst(PROVIDER_ID_PLACEHOLDER, String.valueOf(providerId)); // second
-        save(parse(download(url)));
+        try {
+            save(parse(download(url)));
+        } catch (ParseException e) {
+            log.error("Download handicap change error with url: {}", url, e);
+        }
     }
 
     public List<HandicapChange> save(List<HandicapChange> handicapChangeList) {
         return handicapService.saveAllChanges(handicapChangeList);
     }
 
-    public List<HandicapChange> parse(String json) {
+    public List<HandicapChange> parse(String json) throws ParseException {
         try {
             HandicapChangeParser oddsParser = applicationContext.getBean(HandicapChangeParser.class, handicap);
             return oddsParser.parseResponse(json);
         } catch (ParseException e) {
-            log.error("Download handicap change error", e);
+            log.error("Parse handicap change error with json: {}", json, e);
+            throw e;
         }
-        return Collections.emptyList();
     }
 }

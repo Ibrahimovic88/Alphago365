@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotNull;
-import java.util.Collections;
 import java.util.List;
 
 @Scope("prototype")
@@ -36,19 +35,23 @@ public class MatchJob extends DownloadJob<Match> {
     @Override
     public void runJob() {
         String url = downloadConfig.getMatchUrl().replace("DATE_PLACEHOLDER", matchDate);
-        save(parse(download(url)));
+        try {
+            save(parse(download(url)));
+        } catch (ParseException e) {
+            log.error("Download match error with url: {}", url, e);
+        }
     }
 
     public List<Match> save(List<Match> matchList) {
         return matchService.saveAll(matchList);
     }
 
-    public List<Match> parse(String json) {
+    public List<Match> parse(String json) throws ParseException {
         try {
             return matchParser.parseResponse(json);
         } catch (ParseException e) {
-            log.error("Parse match error", e);
+            log.error("Parse match error with json: {}", json, e);
+            throw e;
         }
-        return Collections.emptyList();
     }
 }

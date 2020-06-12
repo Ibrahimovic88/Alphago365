@@ -33,20 +33,24 @@ public class OddsChangeJob extends OddsRelatedJob<OddsChange> {
         String url = downloadConfig.getOddsChangeUrl()
                 .replaceFirst(MATCH_ID_PLACEHOLDER, String.valueOf(matchId)) // first
                 .replaceFirst(PROVIDER_ID_PLACEHOLDER, String.valueOf(providerId)); // second
-        save(parse(download(url)));
+        try {
+            save(parse(download(url)));
+        } catch (ParseException e) {
+            log.error("Download odds change error with url: {}", url, e);
+        }
     }
 
     public List<OddsChange> save(List<OddsChange> oddsChangeList) {
         return oddsService.saveAllChanges(oddsChangeList);
     }
 
-    public List<OddsChange> parse(String json) {
+    public List<OddsChange> parse(String json) throws ParseException {
         try {
             OddsChangeParser oddsChangeParser = applicationContext.getBean(OddsChangeParser.class, odds);
             return oddsChangeParser.parseResponse(json);
         } catch (ParseException e) {
-            log.error("Download odds change error", e);
+            log.error("Parse odds change error with json: {}", json , e);
+            throw e;
         }
-        return Collections.emptyList();
     }
 }

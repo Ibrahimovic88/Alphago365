@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -36,24 +35,28 @@ public class HandicapJob extends MatchRelatedJob<Handicap> {
         AtomicLong sum = new AtomicLong(0);
         String url = downloadConfig.getHandicapUrl()
                 .replaceFirst(MATCH_ID_PLACEHOLDER, String.valueOf(match.getId()));
-        save(parse(download(url))).forEach(handicap -> {
-            sum.getAndAdd(jobConfig.getHandicapChangeJobDelay());
-            HandicapChangeJob handicapChangeJob = applicationContext.getBean(HandicapChangeJob.class, sum.get(), handicap);
-            priorityJobScheduler.scheduleJob(handicapChangeJob);
-        });
+        try {
+            save(parse(download(url))).forEach(handicap -> {
+                sum.getAndAdd(jobConfig.getHandicapChangeJobDelay());
+                HandicapChangeJob handicapChangeJob = applicationContext.getBean(HandicapChangeJob.class, sum.get(), handicap);
+                priorityJobScheduler.scheduleJob(handicapChangeJob);
+            });
+        } catch (ParseException e) {
+            log.error("Download handicap error with url: {}", url, e);
+        }
     }
 
     public List<Handicap> save(List<Handicap> handicapList) {
         return handicapService.saveAll(handicapList);
     }
 
-    public List<Handicap> parse(String json) {
+    public List<Handicap> parse(String json) throws ParseException {
         try {
             HandicapParser oddsParser = applicationContext.getBean(HandicapParser.class, match);
             return oddsParser.parseResponse(json);
         } catch (ParseException e) {
-            log.error("Download handicap error", e);
+            log.error("Parse handicap error with json: {}", json, e);
+            throw e;
         }
-        return Collections.emptyList();
     }
 }

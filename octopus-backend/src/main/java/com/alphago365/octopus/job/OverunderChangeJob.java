@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import java.util.Collections;
 import java.util.List;
 
 @Scope("prototype")
@@ -33,20 +32,24 @@ public class OverunderChangeJob extends OverunderRelatedJob<OverunderChange> {
         String url = downloadConfig.getOverunderChangeUrl()
                 .replaceFirst(MATCH_ID_PLACEHOLDER, String.valueOf(matchId)) // first
                 .replaceFirst(PROVIDER_ID_PLACEHOLDER, String.valueOf(providerId)); // second
-        save(parse(download(url)));
+        try {
+            save(parse(download(url)));
+        } catch (ParseException e) {
+            log.error("Download overunder change error with url: {}", url, e);
+        }
     }
 
     public List<OverunderChange> save(List<OverunderChange> overunderChangeList) {
         return overunderService.saveAllChanges(overunderChangeList);
     }
 
-    public List<OverunderChange> parse(String json) {
+    public List<OverunderChange> parse(String json) throws ParseException {
         try {
             OverunderChangeParser overunderChangeParser = applicationContext.getBean(OverunderChangeParser.class, overunder);
             return overunderChangeParser.parseResponse(json);
         } catch (ParseException e) {
-            log.error("Download overunder change error", e);
+            log.error("Parse overunder change error with json: {}", json, e);
+            throw e;
         }
-        return Collections.emptyList();
     }
 }

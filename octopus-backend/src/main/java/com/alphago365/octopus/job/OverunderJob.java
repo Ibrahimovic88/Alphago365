@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -36,24 +35,28 @@ public class OverunderJob extends MatchRelatedJob<Overunder> {
         String url = downloadConfig.getOverunderUrl()
                 .replaceFirst(MATCH_ID_PLACEHOLDER, String.valueOf(match.getId()));
         AtomicLong sum = new AtomicLong(0);
-        save(parse(download(url))).forEach(overunder -> {
-            sum.getAndAdd(jobConfig.getOverunderChangeJobDelay());
-            OverunderChangeJob overunderChangeJob = applicationContext.getBean(OverunderChangeJob.class, sum.get(), overunder);
-            priorityJobScheduler.scheduleJob(overunderChangeJob);
-        });
+        try {
+            save(parse(download(url))).forEach(overunder -> {
+                sum.getAndAdd(jobConfig.getOverunderChangeJobDelay());
+                OverunderChangeJob overunderChangeJob = applicationContext.getBean(OverunderChangeJob.class, sum.get(), overunder);
+                priorityJobScheduler.scheduleJob(overunderChangeJob);
+            });
+        } catch (ParseException e) {
+            log.error("Download overunder error with url: {}", url, e);
+        }
     }
 
     public List<Overunder> save(List<Overunder> overunderList) {
         return overunderService.saveAll(overunderList);
     }
 
-    public List<Overunder> parse(String json) {
+    public List<Overunder> parse(String json) throws ParseException {
         try {
             OverunderParser overunderParser = applicationContext.getBean(OverunderParser.class, match);
             return overunderParser.parseResponse(json);
         } catch (ParseException e) {
-            log.error("Download overunder error", e);
+            log.error("Parse overunder error", e);
+            throw e;
         }
-        return Collections.emptyList();
     }
 }

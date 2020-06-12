@@ -1,6 +1,7 @@
 package com.alphago365.octopus.job;
 
 import com.alphago365.octopus.config.DownloadConfig;
+import com.alphago365.octopus.exception.ParseException;
 import com.alphago365.octopus.service.RestService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -25,7 +26,7 @@ public abstract class DownloadJob<T> extends Job {
         return restService.getJson(url);
     }
 
-    protected abstract List<T> parse(String json);
+    protected abstract List<T> parse(String json) throws ParseException;
 
     protected abstract List<T> save(List<T> list);
 }

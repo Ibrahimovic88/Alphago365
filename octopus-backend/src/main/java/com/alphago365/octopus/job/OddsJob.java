@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -36,24 +35,28 @@ public class OddsJob extends MatchRelatedJob<Odds> {
         String url = downloadConfig.getOddsUrl()
                 .replaceFirst(MATCH_ID_PLACEHOLDER, String.valueOf(match.getId()));
         AtomicLong sum = new AtomicLong(0);
-        save(parse(download(url))).forEach(odds -> {
-            sum.getAndAdd(jobConfig.getOddsChangeJobDelay());
-            OddsChangeJob oddsChangeJob = applicationContext.getBean(OddsChangeJob.class, sum.get(), odds);
-            priorityJobScheduler.scheduleJob(oddsChangeJob);
-        });
+        try {
+            save(parse(download(url))).forEach(odds -> {
+                sum.getAndAdd(jobConfig.getOddsChangeJobDelay());
+                OddsChangeJob oddsChangeJob = applicationContext.getBean(OddsChangeJob.class, sum.get(), odds);
+                priorityJobScheduler.scheduleJob(oddsChangeJob);
+            });
+        } catch (ParseException e) {
+            log.error("Download odds error with url: {}", url, e);
+        }
     }
 
     public List<Odds> save(List<Odds> oddsList) {
         return oddsService.saveAll(oddsList);
     }
 
-    public List<Odds> parse(String json) {
+    public List<Odds> parse(String json) throws ParseException {
         try {
             OddsParser oddsParser = applicationContext.getBean(OddsParser.class, match);
             return oddsParser.parseResponse(json);
         } catch (ParseException e) {
-            log.error("Download odds error", e);
+            log.error("Parse odds error with json: {}", json, e);
+            throw e;
         }
-        return Collections.emptyList();
     }
 }
