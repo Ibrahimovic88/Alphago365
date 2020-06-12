@@ -1,32 +1,35 @@
 <template>
-	<table class="table table-striped table-striped">
-		<thead class="thead-dark">
-			<tr>
-				<th>Id</th>
-				<th>Number</th>
-				<th>League</th>
-				<th>Kickoff</th>
-				<th>Home</th>
-				<th>Away</th>
-				<th>Score</th>
-				<th>WDL</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr v-for="match in matches" v-bind:key="match.id">
-				<td>
-					<router-link :to="{path: '/matches/' + match.id}">{{match.id}}</router-link>
-				</td>
-				<td>{{match.serialNumber}}</td>
-				<td>{{match.league}}</td>
-				<td>{{match.kickoffTime | moment('MM/DD HH:mm') }}</td>
-				<td>{{match.home}}</td>
-				<td>{{match.away}}</td>
-				<td>{{match | formatStatus}}</td>
-				<td>{{match.actualWdl}}</td>
-			</tr>
-		</tbody>
-	</table>
+	<div class="container">
+		<table class="table table-striped table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>Id</th>
+					<th>Number</th>
+					<th>League</th>
+					<th>Kickoff</th>
+					<th>Home</th>
+					<th>Away</th>
+					<th>Score(Half)</th>
+					<th>WDL</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="match in matches" v-bind:key="match.id">
+					<td>
+						<router-link :to="{path: '/matches/' + match.id + '/handicap'}">{{match.id}}</router-link>
+					</td>
+					<td>{{match.serialNumber}}</td>
+					<td>{{match.league}}</td>
+					<td>{{match.kickoffTime | moment('MM/DD HH:mm') }}</td>
+					<td>{{match.home}}</td>
+					<td>{{match.away}}</td>
+					<td>{{match | formatScore}}</td>
+					<td v-if="match.actualWdl==='UNKNOWN'">---</td>
+					<td v-else>{{match.actualWdl|formatWdl}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </template>
 <script>
 	import MatchService from '../services/MatchService';
@@ -39,7 +42,7 @@
 			}
 		},
 		filters: {
-			formatStatus: function(match) {
+			formatScore: function(match) {
 				if (match.halfHomeGoals == -1 ||
 					match.halfAwayGoals == -1 ||
 					match.finalHomeGoals == -1 ||
@@ -50,19 +53,30 @@
 						.concat("(")
 						.concat(match.halfHomeGoals)
 						.concat(")")
+						.concat(" : ")
 						.concat("(")
 						.concat(match.halfAwayGoals)
 						.concat(")")
 						.concat(match.finalAwayGoals);
 				}
+			},
+			formatWdl: function(wdl) {
+				switch (wdl) {
+					case 'WIN':
+						return '主胜';
+					case 'DRAW':
+						return '平局';
+					case 'LOSE':
+						return '主负';
+					default:
+						return '---'
+				}
 			}
 		},
 		methods: {
 			refreshMatches() {
-				console.log('Hello');
 				MatchService.retrieveLatestDaysMatches(this.latestDays)
 					.then((result) => {
-						console.log(result.statusText);
 						this.matches = result.data;
 					});
 			},
