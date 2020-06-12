@@ -30,9 +30,9 @@ public class CustomRestTemplateCustomizer implements RestTemplateCustomizer {
         }
 
         private void logRequestDetails(HttpRequest request) {
-            log.debug("Headers: {}", request.getHeaders());
-            log.debug("Request Method: {}", request.getMethod());
-            log.debug("Request URI: {}", request.getURI());
+            log.info("Headers: {}", request.getHeaders());
+            log.info("Request Method: {}", request.getMethod());
+            log.info("Request URI: {}", request.getURI());
         }
 
     }

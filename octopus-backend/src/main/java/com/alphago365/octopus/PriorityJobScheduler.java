@@ -21,6 +21,8 @@ public class PriorityJobScheduler {
     private final DelayQueue<Job> jobDelayQueue;
     private final AtomicBoolean running = new AtomicBoolean(true);
 
+    private final ScheduledExecutorService dumpJobScheduler = Executors.newScheduledThreadPool(1);
+
     private final Map<String, Job> jobCache = new ConcurrentHashMap<>();
 
     public PriorityJobScheduler(JobConfig jobConfig) {
@@ -52,18 +54,10 @@ public class PriorityJobScheduler {
                 }
                 lastExecuteTime = LocalDateTime.now();
                 priorityJobPoolExecutor.execute(job);
-                dumpJobCache(job);
                 jobCache.remove(job.getJobName());
             }
         });
-    }
-
-    private void dumpJobCache(Job job) {
-        try {
-            new DumpJobCacheJob(job).runJob();
-        } catch (JobException e) {
-            log.error("Dump job error", e);
-        }
+        dumpJobScheduler.scheduleAtFixedRate(new DumpJobCacheJob(), 5000, 180000, TimeUnit.MILLISECONDS);
     }
 
     public void scheduleJob(Job job) {
@@ -80,15 +74,13 @@ public class PriorityJobScheduler {
         running.compareAndSet(true, false);
         priorityJobScheduler.shutdown();
         priorityJobPoolExecutor.shutdown();
+        dumpJobScheduler.shutdown();
     }
 
     private class DumpJobCacheJob extends Job {
 
-        private final Job current;
-
-        public DumpJobCacheJob(Job current) {
+        public DumpJobCacheJob() {
             super("DumpJobCache", 500);
-            this.current = current;
         }
 
         @Override
@@ -99,13 +91,10 @@ public class PriorityJobScheduler {
                 String jobName = job.getJobName();
                 builder.append(String.format("%-13s",jobName))
                         .append(", ")
-                        .append(String.format("%5d", job.getDelay(TimeUnit.MILLISECONDS)));
-                if (jobName.equals(current.getJobName())) {
-                    builder.append(" <----current job");
-                }
-                builder.append("\n");
+                        .append(String.format("%5d", job.getDelay(TimeUnit.MILLISECONDS)))
+                        .append("\n");
             });
-            log.trace(builder.toString());
+            log.info(builder.toString());
         }
     }
 }

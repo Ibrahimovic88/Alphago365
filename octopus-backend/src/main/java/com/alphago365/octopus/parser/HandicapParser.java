@@ -5,6 +5,7 @@ import com.alphago365.octopus.model.Handicap;
 import com.alphago365.octopus.model.Match;
 import com.alphago365.octopus.model.Provider;
 import com.github.openjson.JSONObject;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;

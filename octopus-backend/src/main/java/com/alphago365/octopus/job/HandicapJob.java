@@ -52,7 +52,7 @@ public class HandicapJob extends MatchRelatedJob<Handicap> {
             HandicapParser oddsParser = applicationContext.getBean(HandicapParser.class, match);
             return oddsParser.parseResponse(json);
         } catch (ParseException e) {
-            log.error("Download odds error", e);
+            log.error("Download handicap error", e);
         }
         return Collections.emptyList();
     }

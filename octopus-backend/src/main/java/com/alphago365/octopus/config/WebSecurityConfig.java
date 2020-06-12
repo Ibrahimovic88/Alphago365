@@ -61,6 +61,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
             // odds related whitelist
             "/**/matches/**/odds/**",
+
+            // test
+            "/**/test/**"
     };
 
     @Autowired
